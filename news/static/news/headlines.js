@@ -15,7 +15,8 @@ function load_world_headlines(category, tab) {
     // Get tab where content will be populated and empty it
     const contentTab = document.querySelector(tab);
     contentTab.innerHTML = placeholderBanner;
-    contentTab.innerHTML += placeholderCards;
+    contentTab.innerHTML += placeholderHeading;
+    contentTab.innerHTML += create_placeholder_cards(4);
 
     fetch(`headlines/${category}`)
     .then(res => res.json())
