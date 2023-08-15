@@ -23,16 +23,16 @@ const placeholderHeading = `<div class="placeholder-glow my-3">
                                 <span class="placeholder col-3"></span>
                             </div>`;
 
-const placeholderCard = `<div class="col-md-6 border py-3 placeholder-card">
-                            <div class="row g-0 flex-md-row mb-4 h-100">
-                                <div class="col-lg col-md-12 px-3 card-text placeholder-glow">
+const placeholderCard = `<div class="col-lg-6 col-md-12 border py-3 placeholder-card">
+                            <div class="row mb-4 h-100">
+                                <div class="col-lg col-md-6 col-sm-12 px-3 placeholder-glow">
                                     <span class="placeholder col-7"></span>
                                     <span class="placeholder col-4"></span>
                                     <span class="placeholder col-4"></span>
                                     <span class="placeholder col-6"></span>
                                     <span class="placeholder col-8"></span>
                                 </div>
-                                <div class="col-lg col-md-12">
+                                <div class="col-lg col-md-6 col-sm-12 article-img-container">
                                 </div>
                             </div>
                         </div>`;

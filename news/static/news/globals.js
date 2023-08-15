@@ -40,6 +40,6 @@ function create_articles_view(article) {
                     alt="carousel-pic-1" class="article-img" onError="this.onerror=null; this.src='../static/news/img/placeholder.jpg';">
             </div>
         </div>
-    </div>`
+    </div>`;
 }
 
