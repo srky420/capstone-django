@@ -25,17 +25,17 @@ function create_articles_view(article) {
     publishedDate = publishedDate.toLocaleDateString();
 
     document.querySelector('#articles-row').innerHTML += `
-    <div class="col-md-6 border py-3">
-        <div class="row g-0 flex-md-row mb-4 h-100">
-            <div class="col-lg col-md-12 px-3 d-flex flex-column">
+    <div class="col-lg-6 col-md-12 border py-3">
+        <div class="row mb-4 h-100">
+            <div class="col-lg col-md-6 col-sm-12 px-3 d-flex flex-column">
                 <h5 class="mb-0">${article.title}</h5>
                 <small class="my-1 text-body-secondary">${publishedDate} by ${article.author}</small>
                 <p class="card-text mb-auto">${article.description}</p>
-                <a href="${article.url}" class="link-underline">
+                <a href="${article.url}" class="link-underline mb-2">
                     Continue reading
                 </a>
             </div>
-            <div class="col-lg col-md-12 article-img-container">
+            <div class="col-lg col-md-6 col-sm-12 article-img-container">
                 <img src="${article.urlToImage}" 
                     alt="carousel-pic-1" class="article-img" onError="this.onerror=null; this.src='../static/news/img/placeholder.jpg';">
             </div>
