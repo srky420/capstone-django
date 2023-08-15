@@ -28,10 +28,11 @@ function load_world_headlines(category, tab) {
         }
         if (data.status == "ok") {
 
-            contentTab.innerHTML = carousel;
-            contentTab.innerHTML += topNewsHeading;
-            contentTab.innerHTML += articlesRow;
             const articles = data.articles;
+
+            contentTab.innerHTML = carousel;
+            contentTab.innerHTML += create_heading('Top Headlines');
+            contentTab.innerHTML += create_articles_row('world-tab-articles-row');
 
             create_carousel_item('#myCarousel', articles[0], true);
 
@@ -41,7 +42,7 @@ function load_world_headlines(category, tab) {
                     create_carousel_item('#myCarousel', articles[i], false);
                     continue;
                 }
-                create_articles_view(articles[i]);
+                create_articles_columns(articles[i], '#world-tab-articles-row');
             }
         }
 
