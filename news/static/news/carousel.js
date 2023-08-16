@@ -16,7 +16,7 @@ function create_carousel(id, articles) {
                 `<div class="carousel-item active">
                     <img src="${articles[i].urlToImage}" 
                         alt="carousel-pic-1" class="carousel-img" onError="this.onerror=null; this.src='../static/news/img/placeholder.jpg';">
-                    <div class="shadow-over position-absolute w-100 h-100 bg-dark bg-opacity-50 bottom-0"></div>
+                    <div class="position-absolute w-100 h-100 bg-dark bg-opacity-50 bottom-0"></div>
                     <div class="container">
                         <div class="carousel-caption text-start">
                             <h1 class="text-light">${articles[i].title}</h1>
@@ -32,7 +32,7 @@ function create_carousel(id, articles) {
             `<div class="carousel-item">
                 <img src="${articles[i].urlToImage}" 
                     alt="carousel-pic-1" class="carousel-img" onError="this.onerror=null; this.src='../static/news/img/placeholder.jpg';">
-                <div class="shadow-over position-absolute w-100 h-100 bg-dark bg-opacity-50 bottom-0"></div>
+                <div class="position-absolute w-100 h-100 bg-dark bg-opacity-50 bottom-0"></div>
                 <div class="container">
                     <div class="carousel-caption text-start">
                         <h1 class="text-light">${articles[i].title}</h1>

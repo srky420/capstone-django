@@ -14,7 +14,7 @@
     height: 600px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, a {
     font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
     font-weight: bold;
 }
@@ -119,8 +119,12 @@ h1, h2, h3, h4, h5, h6 {
 
 @media screen and (max-width: 1200px) {
     
-    h1, h2, h3, h4, h5, h6 {
+    h4, h5, h6 {
         font-size: medium !important;
+    }
+
+    h1, h2, h3 {
+        font-size: 20px !important;
     }
 
     p {
@@ -162,6 +166,10 @@ h1, h2, h3, h4, h5, h6 {
         width: 100%;
     }
 
+    .side-articles-list {
+        height: 150px;
+    }
+
     .sources {
         height: 300px;
     }
@@ -177,8 +185,5 @@ h1, h2, h3, h4, h5, h6 {
         height: 200px;
     }
 
-    .side-articles-img {
-        display: none;
-    }
 }
 

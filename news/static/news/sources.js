@@ -7,11 +7,12 @@ function create_sources(sources, heading) {
     sources.forEach(source => {
         html += (
             `<div class="col-lg-4 col-md-6 col-sm-12 border py-3">
-                <div class="px-3 d-flex flex-column">
-                    <h5 class="mb-0">${source.name}</h5>
-                    <p class="card-text mb-auto text-wrap overflow-hidden">${source.description}</p>
-                    <a href="${source.url}" class="link-underline link-offset-3 mb-2">
-                        Continue reading
+                <div class="px-3 d-flex flex-column h-100 position-relative">
+                    <strong class="d-inline-block mb-2 text-primary-emphasis">${source.category}</strong>
+                    <a href="${source.url}" class="mb-0 link-underline link-underline-opacity-0"><h4>${source.name}</h4></a>
+                    <p class="my-2 text-wrap overflow-hidden">${source.description}</p>
+                    <a href="${source.url}" class="btn btn-sm btn-dark position-absolute top-0 end-0">
+                        <i class="fa fa-plus"></i>
                     </a>
                 </div>
             </div>`

@@ -9,7 +9,7 @@ def get_top_headlines(category):
     
     if category == "world":
         try:
-            return api.get_top_headlines(page_size=20, page=1)
+            return api.get_top_headlines(page_size=22, page=1)
         except newsapi_exception.NewsAPIException as e:
             return e
         
