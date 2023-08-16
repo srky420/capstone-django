@@ -46,6 +46,10 @@ h1, h2, h3, h4, h5, h6 {
     height: 300px;
 }
 
+.sources {
+    height: 400px;
+}
+
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -156,6 +160,10 @@ h1, h2, h3, h4, h5, h6 {
 
     .side-articles-img {
         width: 100%;
+    }
+
+    .sources {
+        height: 300px;
     }
 }
 

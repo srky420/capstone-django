@@ -32,10 +32,14 @@ function load_world_headlines(category, tab) {
 
             // Main articles for carousel and articles for column view
             const mainArticles = data.articles.slice(0, 4);
-            const articles = data.articles.slice(4)
+            const articles_first = data.articles.slice(4, 8);
+            const articles_second = data.articles.slice(8);
+            const sources = data.sources;
 
             contentTab.innerHTML = create_carousel('world-tab-carousel', mainArticles);
-            contentTab.innerHTML += create_articles(articles, 'Top Headlines');
+            contentTab.innerHTML += create_articles(articles_first, "Recent headlines");
+            contentTab.innerHTML += create_sources(sources, 'Top Sources');
+            contentTab.innerHTML += create_articles(articles_second, 'Top Headlines');
         }
 
     })

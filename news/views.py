@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from django.http import JsonResponse
 
-from .utils import get_top_headlines
+from .utils import get_top_headlines, get_top_sources
 
 # Create your views here.
 class IndexView(View):
@@ -13,5 +13,8 @@ class IndexView(View):
 class HeadlinesView(View):
     def get(self, request, category):
         response = get_top_headlines(category)
+        sources = get_top_sources(category)
+        if sources["status"] == "ok":
+            response["sources"] = sources["sources"]
         
         return JsonResponse(response, safe=False, status=200)

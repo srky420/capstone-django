@@ -23,8 +23,8 @@ function create_carousel(id, articles) {
                             <p><a class="link-light link-underline link-underline-opacity-0 link-underline-opacity-100-hover h4" href="${articles[i].url}">Read more...</a></p>
                         </div>
                     </div>
-                </div>
-            `);
+                </div>`
+            );
             continue;
         }
         carousel_indicators += `<button type="button" data-bs-target="#${id}" data-bs-slide-to="${i}" aria-label="Slide ${i + 1}" class=""></button>`;
@@ -52,8 +52,8 @@ function create_carousel(id, articles) {
     carousel += carousel_inner;
 
     // Close carousel tag
-    carousel += (`
-            <button class="carousel-control-prev" type="button" data-bs-target="#${id}" data-bs-slide="prev">
+    carousel += (
+            `<button class="carousel-control-prev" type="button" data-bs-target="#${id}" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
@@ -61,7 +61,7 @@ function create_carousel(id, articles) {
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
-        </div>
-    `);
+        </div>`
+    );
     return carousel;
 }
