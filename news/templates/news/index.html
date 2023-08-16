@@ -6,4 +6,53 @@
 
     {% include "news/tab-content.html" %} 
 
+    <div class="row side-articles">
+        <div class="col-lg-8 col-md-12 h-100 mb-3">
+            <div class="card text-white border-0 rounded-0 h-100">
+                <img src="https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/76f95899df261776c441932b344183f1.jpg" class="h-100" style="object-fit: cover;" alt="article-img">
+                <div class="card-img-overlay bg-dark bg-opacity-50 rounded-0">
+                    <h3 class="card-title">Card title</h3>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text"><small>16/08/2023</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 h-100 d-flex flex-lg-column flex-sm-row justify-content-between mt-lg-0 mt-sm-3 side-articles-list">
+            <div class="d-flex flex-lg-row flex-sm-column gap-3">
+                <img src="https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/76f95899df261776c441932b344183f1.jpg" 
+                    class="side-articles-img" alt="" srcset="">
+                <div>
+                    <h5 class="mb-0">Card title</h5>
+                    <small class="my-1 text-body-secondary">16/08/2023</small><br>
+                    <a href="${article.url}" class="link-underline mb-2">
+                        Continue reading
+                    </a>
+                </div>
+            </div>
+            <div class="d-flex flex-lg-row flex-sm-column gap-3">
+                <img src="https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/76f95899df261776c441932b344183f1.jpg" 
+                    class="side-articles-img" alt="" srcset="">
+                <div>
+                    <h5 class="mb-0">Card title</h5>
+                    <small class="my-1 text-body-secondary">16/08/2023</small><br>
+                    <a href="${article.url}" class="link-underline mb-2">
+                        Continue reading
+                    </a>
+                </div>
+            </div>
+            <div class="d-flex flex-lg-row flex-sm-column gap-3">
+                <img src="https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/76f95899df261776c441932b344183f1.jpg" 
+                    class="side-articles-img" alt="" srcset="">
+                <div>
+                    <h5 class="mb-0">Card title</h5>
+                    <small class="my-1 text-body-secondary">16/08/2023</small><br>
+                    <a href="${article.url}" class="link-underline mb-2">
+                        Continue reading
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
 {% endblock %}

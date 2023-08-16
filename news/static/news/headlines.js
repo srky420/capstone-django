@@ -1,4 +1,4 @@
-function get_headlines(e) {
+function load_headlines(e) {
     // Get category name
     const category = e.currentTarget.dataset.category;
     const tab = e.currentTarget.dataset.bsTarget;
@@ -12,11 +12,13 @@ function get_headlines(e) {
 
 // Loads world news
 function load_world_headlines(category, tab) {
-    // Get tab where content will be populated and empty it
+
+    // Get tab where content will be populated
     const contentTab = document.querySelector(tab);
-    contentTab.innerHTML = placeholderBanner;
-    contentTab.innerHTML += placeholderHeading;
-    contentTab.innerHTML += create_placeholder_cards(4);
+
+    // Show placeholders while content is loaded
+    contentTab.innerHTML = placeholderCarousel;
+    contentTab.innerHTML += create_placeholder_articles(4);
 
     fetch(`headlines/${category}`)
     .then(res => res.json())
@@ -28,22 +30,12 @@ function load_world_headlines(category, tab) {
         }
         if (data.status == "ok") {
 
-            const articles = data.articles;
+            // Main articles for carousel and articles for column view
+            const mainArticles = data.articles.slice(0, 4);
+            const articles = data.articles.slice(4)
 
-            contentTab.innerHTML = carousel;
-            contentTab.innerHTML += create_heading('Top Headlines');
-            contentTab.innerHTML += create_articles_row('world-tab-articles-row');
-
-            create_carousel_item('#myCarousel', articles[0], true);
-
-            // Create first 4 carousels and other cards
-            for (let i = 1; i < articles.length; i++) {
-                if (i < 4) {
-                    create_carousel_item('#myCarousel', articles[i], false);
-                    continue;
-                }
-                create_articles_columns(articles[i], '#world-tab-articles-row');
-            }
+            contentTab.innerHTML = create_carousel('world-tab-carousel', mainArticles);
+            contentTab.innerHTML += create_articles(articles, 'Top Headlines');
         }
 
     })

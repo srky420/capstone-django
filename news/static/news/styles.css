@@ -29,6 +29,15 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
 }
 
+.side-articles {
+    height: 400px;
+}
+
+.side-articles-img {
+    width: 120px;
+    height: 120px;
+}
+
 .placeholder-banner {
     height: 500px;
 }
@@ -140,6 +149,14 @@ h1, h2, h3, h4, h5, h6 {
     .placeholder-card {
         height: 200px;
     }
+
+    .side-articles {
+        height: auto;
+    }
+
+    .side-articles-img {
+        width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -150,6 +167,10 @@ h1, h2, h3, h4, h5, h6 {
 
     .article-img {
         height: 200px;
+    }
+
+    .side-articles-img {
+        display: none;
     }
 }
 
