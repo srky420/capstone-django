@@ -33,6 +33,15 @@ const placeholderArticle = `<div class="col-lg-6 col-md-12 border py-3 placehold
                                 </div>
                             </div>`;
 
+const placeholderArticleWide = `<div class="p-5 my-5 position-relative bg-body-tertiary" style="min-height: 400px">
+                                    <div class="placeholder-glow">
+                                        <span class="placeholder col-8"></span>
+                                        <span class="placeholder col-4"></span>
+                                        <span class="placeholder col-5"></span>
+                                        <span class="placeholder col-6"></span>
+                                    </div>
+                                </div>`;
+
 
 // Creates placeholder articles for specified columns
 function create_placeholder_articles(num) {
