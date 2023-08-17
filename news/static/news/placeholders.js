@@ -42,6 +42,13 @@ const placeholderArticleWide = `<div class="p-5 my-5 position-relative bg-body-t
                                     </div>
                                 </div>`;
 
+const placeholderSources = `<div class="p-3 d-flex flex-column position-relative border placeholder-glow">
+                                <span class="placeholder col-8"></span>
+                                <span class="placeholder col-4"></span>
+                                <span class="placeholder col-5"></span>
+                                <span class="placeholder col-6"></span>
+                            </div>`;
+
 
 // Creates placeholder articles for specified columns
 function create_placeholder_articles(num) {
@@ -57,4 +64,21 @@ function create_placeholder_articles(num) {
     // Close tag
     html += '</div>';
     return html;
+}
+
+
+// Creates placeholder sources list for specified columns
+function create_placeholder_sources(num) {
+
+    // Main html
+    let html = `<div class="placeholder-glow my-3"><span class="placeholder col-3"></span></div><div class="row m-0">`;
+
+    // Create required num of placholder articles
+    for (let i = 0; i < num; i++) {
+        html += placeholderSources;
+    }
+    
+    // Close tag
+    html += '</div>';
+    return html; 
 }

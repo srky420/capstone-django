@@ -14,7 +14,12 @@ class HeadlinesView(View):
     def get(self, request, category):
         response = get_top_headlines(category)
         sources = get_top_sources(category)
-        if sources["status"] == "ok":
+        if response["status"] == "ok" and sources["status"] == "ok":
             response["sources"] = sources["sources"]
         
         return JsonResponse(response, safe=False, status=200)
+    
+    
+class SourceView(View):
+    def get(self, request, *args, **kwargs):
+        

@@ -1,15 +1,19 @@
 function load_headlines(e) {
     // Get category name
-    const category = e.currentTarget.dataset.category;
+    const tabName = e.currentTarget.dataset.tabName;
     const tabId = e.currentTarget.dataset.bsTarget;
 
-    // World category
-    if (category == 'world') {
-        load_world_headlines(category, tabId);
+    // World tab
+    if (tabName == 'world') {
+        load_world_headlines(tabName, tabId);
     }
-    // Other categories
+    // Sources tab
+    else if(tabName == 'sources') {
+        load_sources(tabName)
+    }
+    // Other tab
     else {
-        load_category_headlines(category, tabId);
+        load_category_headlines(tabName, tabId);
     }
 }
 
@@ -101,5 +105,18 @@ function load_category_headlines(category, tab_id) {
     .catch(err => {
         console.log(err);
     })
+}
+
+
+// Load sources tab
+function load_sources() {
+    // Get source div
+    const sourcesDiv = document.querySelector('#source-div');
+
+    // Create placeholders
+    sourcesDiv.innerHTML = create_placeholder_sources(4);
+
+    // Fetch sources data
+    fetch()
 }
 

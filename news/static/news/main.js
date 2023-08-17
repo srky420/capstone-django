@@ -6,6 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Default
-    // document.querySelector('#world-tab').click();
+    document.querySelector('#world-tab').click();
 
 });
