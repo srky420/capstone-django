@@ -1,4 +1,4 @@
-from newsapi import NewsApiClient, newsapi_exception
+from newsapi import NewsApiClient
 from newsapi.newsapi_exception import NewsAPIException
 from django.conf import settings
 

@@ -113,6 +113,10 @@ function load_sources() {
     // Get source div
     const sourcesDiv = document.querySelector('#sources-div');
 
+    // Disable search input
+    document.querySelector('#sources-search').disabled = true;
+    document.querySelector('#sources-search').value = '';
+
     // Create placeholders
     sourcesDiv.innerHTML = create_placeholder_sources(8);
 
@@ -120,7 +124,7 @@ function load_sources() {
     const categoryFilters = [];
     document.querySelectorAll('.sources-category-checkbox').forEach(checkbox => {
         if (checkbox.checked) {
-            filters.push(checkbox.value);
+            categoryFilters.push(checkbox.value);
         }
     })
 
@@ -133,7 +137,7 @@ function load_sources() {
         console.log(data);
 
         // Check if filters selected or not
-        if (filters.length == 0) {
+        if (categoryFilters.length == 0) {
             // Create sources list
             sourcesDiv.innerHTML = create_sources_lg(data.sources, 'Sources')
         }
@@ -147,7 +151,10 @@ function load_sources() {
             // Create sources list
             sourcesDiv.innerHTML = create_sources_lg(sources, 'Sources')
         }
-        
+
+        // Enable search input
+        document.querySelector('#sources-search').disabled = false;
+
     })
     .catch(err => {
         console.log(err);

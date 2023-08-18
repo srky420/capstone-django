@@ -1,11 +1,12 @@
 <!-- Filters -->
 <div id="sources-filter">
-    <div class="d-flex justify-content-between align-items-center">
-        <button class="btn btn-dark mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <div class="input-group mt-3">
+        <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             Filter
         </button>
+        <input type="text" id="sources-search" class="form-control" placeholder="Search sources...">
     </div>
-    <div class="collapse border" id="collapseExample">
+    <div class="collapse border my-3" id="collapseExample">
         <h5 class="m-2">By Category</h5>
         <input type="checkbox" class="btn-check sources-category-checkbox" onchange="load_sources()" id="btn-filter-business" autocomplete="off" value="business">
         <label class="btn btn-dark btn-sm m-2" for="btn-filter-business">Business</label>

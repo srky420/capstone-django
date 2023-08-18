@@ -4,9 +4,9 @@ function create_sources_lg(sources, heading) {
 
     sources.forEach(source => {
         html += (
-            `<div class="p-3 d-flex flex-column position-relative border">
+            `<div class="p-3 d-flex flex-column position-relative border source">
                 <strong class="d-inline-block mb-2 text-primary-emphasis">${source.category}</strong>
-                <a href="${source.url}" class="mb-0 link-underline link-underline-opacity-0"><h4>${source.name}</h4></a>
+                <a href="${source.url}" class="mb-0 link-underline link-underline-opacity-0"><h4 class="source-name">${source.name}</h4></a>
                 <p class="my-2">${source.description}</p>
                 <a href="${source.url}" class="btn btn-sm btn-dark position-absolute top-0 end-0 m-2">
                     <i class="fa fa-plus"></i> Subscribe
@@ -33,7 +33,7 @@ function create_sources_sm(sources, heading) {
             `<div class="col-lg-4 col-md-6 col-sm-12 border py-3">
                 <div class="px-3 d-flex flex-column h-100 position-relative">
                     <strong class="d-inline-block mb-2 text-primary-emphasis">${source.category}</strong>
-                    <a href="#" class="mb-0 link-underline link-underline-opacity-0" onclick><h4>${source.name}</h4></a>
+                    <a href="#" class="mb-0 link-underline link-underline-opacity-0" onclick=""><h4>${source.name}</h4></a>
                     <p class="my-2 text-wrap overflow-hidden">${source.description}</p>
                     <a href="${source.url}" class="btn btn-sm btn-dark position-absolute top-0 end-0">
                         <i class="fa fa-plus"></i>

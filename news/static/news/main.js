@@ -8,4 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Default
     document.querySelector('#world-tab').click();
 
+    // Source search event
+    document.querySelector('#sources-search').addEventListener('input', (e) => search_sources(e));
+
 });
