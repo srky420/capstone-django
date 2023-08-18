@@ -52,7 +52,7 @@ function load_world_headlines(category, tab_id) {
             contentTab.innerHTML = create_carousel('world-tab-carousel', mainArticles);
             contentTab.innerHTML += create_articles(articlesFirst, "Recent News");
             contentTab.innerHTML += create_wide_article(wideArticleFirst);
-            contentTab.innerHTML += create_sources(sources, 'Top Sources');
+            contentTab.innerHTML += create_sources_sm(sources, 'Top Sources');
             contentTab.innerHTML += create_articles(articlesSecond, 'Top Headlines');
             contentTab.innerHTML += create_wide_article(wideArticleSecond);
         }
@@ -98,7 +98,7 @@ function load_category_headlines(category, tab_id) {
             contentTab.innerHTML = create_wide_article(articleWideFirst);
             contentTab.innerHTML += create_articles(articlesFirst, `Recent ${categoryName} News`);
             contentTab.innerHTML += create_wide_article(aritcleWideSecond);
-            contentTab.innerHTML += create_sources(sources, `Top Sources for ${categoryName}`);
+            contentTab.innerHTML += create_sources_sm(sources, `Top Sources for ${categoryName}`);
             contentTab.innerHTML += create_articles(articlesSecond, `Top Headlines for ${categoryName}`);
         }
     })
@@ -111,12 +111,46 @@ function load_category_headlines(category, tab_id) {
 // Load sources tab
 function load_sources() {
     // Get source div
-    const sourcesDiv = document.querySelector('#source-div');
+    const sourcesDiv = document.querySelector('#sources-div');
 
     // Create placeholders
-    sourcesDiv.innerHTML = create_placeholder_sources(4);
+    sourcesDiv.innerHTML = create_placeholder_sources(8);
+
+    // Get filter values
+    const categoryFilters = [];
+    document.querySelectorAll('.sources-category-checkbox').forEach(checkbox => {
+        if (checkbox.checked) {
+            filters.push(checkbox.value);
+        }
+    })
+
+    console.log(categoryFilters);
 
     // Fetch sources data
-    fetch()
+    fetch('sources/')
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+
+        // Check if filters selected or not
+        if (filters.length == 0) {
+            // Create sources list
+            sourcesDiv.innerHTML = create_sources_lg(data.sources, 'Sources')
+        }
+        else {
+            // Filter out sources by category
+            let sources = data.sources.filter(source => {
+                if (categoryFilters.includes(source.category)) {
+                    return source;
+                }
+            })
+            // Create sources list
+            sourcesDiv.innerHTML = create_sources_lg(sources, 'Sources')
+        }
+        
+    })
+    .catch(err => {
+        console.log(err);
+    })
 }
 

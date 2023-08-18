@@ -42,11 +42,13 @@ const placeholderArticleWide = `<div class="p-5 my-5 position-relative bg-body-t
                                     </div>
                                 </div>`;
 
-const placeholderSources = `<div class="p-3 d-flex flex-column position-relative border placeholder-glow">
-                                <span class="placeholder col-8"></span>
-                                <span class="placeholder col-4"></span>
-                                <span class="placeholder col-5"></span>
-                                <span class="placeholder col-6"></span>
+const placeholderSource = `<div class="p-3 d-flex flex-column position-relative border placeholder-glow" style="height: 150px;">
+                                <div class="placeholder-glow">  
+                                    <span class="placeholder col-8"></span>
+                                    <span class="placeholder col-4"></span>
+                                    <span class="placeholder col-5"></span>
+                                    <span class="placeholder col-6"></span>
+                                </div>
                             </div>`;
 
 
@@ -75,7 +77,7 @@ function create_placeholder_sources(num) {
 
     // Create required num of placholder articles
     for (let i = 0; i < num; i++) {
-        html += placeholderSources;
+        html += placeholderSource;
     }
     
     // Close tag
