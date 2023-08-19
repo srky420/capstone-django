@@ -39,3 +39,10 @@ def get_all_sources():
         return api.get_sources()
     except NewsAPIException as e:
         return e
+    
+    
+def get_everything(q):
+    try:
+        return api.get_everything(q=q)
+    except NewsAPIException as e:
+        return e

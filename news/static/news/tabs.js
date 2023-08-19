@@ -1,5 +1,5 @@
 function load_headlines(e) {
-    // Get category name
+    // Get names and ids
     const tabName = e.currentTarget.dataset.tabName;
     const tabId = e.currentTarget.dataset.bsTarget;
 
