@@ -126,7 +126,7 @@ function load_sources() {
         if (checkbox.checked) {
             categoryFilters.push(checkbox.value);
         }
-    })
+    });
 
     console.log(categoryFilters);
 
