@@ -1,0 +1,21 @@
+<!-- Log in -->
+<div class="form-signin w-100 mx-auto border shadow auth-form fade visually-hidden" id="login-form">
+    <form>
+        <h3 class="mb-3 text-center">Please sign in</h3>
+
+        <!-- Messages -->
+        {% if view == "login-form" %}{% include "accounts/messages.html" %}{% endif %}
+
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
+            <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
+            <label for="floatingPassword">Password</label>
+        </div>
+        <p class="text-end my-2"><a class="link-underline" href="#" onclick="switch_view('forgotpass-form')">Forgot Password?</a></p>
+        <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+        <p class="text-center my-2">Don't have an account? <a class="link-underline" href="#" onclick="switch_view('register-form')">Sign up</a></p>
+    </form>
+</div>

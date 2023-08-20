@@ -1,0 +1,11 @@
+{% if messages %}
+    <ul class="messages">
+        {% for msg in messages %}
+            <div class="alert alert-{% if msg.tags == 'error' %}danger{% else %}msg.tags{% endif %}" role="alert">
+                <li>
+                    {{ msg }}
+                </li>
+            </div>
+        {% endfor %}
+    </ul>
+{% endif %}

@@ -1,0 +1,12 @@
+<h2 style="text-align: center;">{{ subject }}</h2>
+<p style="text-align: center; margin: 1rem 0;">{{ message }}</p>
+
+{% if email_for == "verification" %}
+    <form action="http://127.0.0.1:8000{% url 'accounts:verify' token %}" method="get" style="text-align: center; margin: 1rem 0;">
+        <button type="submit" style="padding: 10px; background-color: black; color: white; border: none;">Verify Account</button>
+    </form>
+{% elif email_for == "resetpassword" %}
+    <form action="http://127.0.0.1:8000{% url 'accounts:reset-pass' token %}" method="get" style="text-align: center; margin: 1rem 0;">
+        <button type="submit" style="padding: 10px; background-color: black; color: white; border: none;">Reset Password</button>
+    </form>
+{% endif %}
