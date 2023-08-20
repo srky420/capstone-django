@@ -17,7 +17,7 @@
 
         <!-- Navbar -->
         {% include "news/navbar.html" %}
-
+       
     {% endif %}
 
     <!-- Body block -->
@@ -40,6 +40,8 @@
         <script src="{% static 'news/main.js' %}"></script>
     {% endif %}
     
+    {% block scripts %}{% endblock %}
+
     <script src="{% static 'news/articles.js' %}"></script>
     <script src="{% static 'news/placeholders.js' %}"></script>
     <script src="{% static 'news/color-modes.js' %}"></script>

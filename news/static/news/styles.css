@@ -185,5 +185,9 @@ h1, h2, h3, h4, h5, h6, a {
         height: 200px;
     }
 
+    .blog-header-logo {
+        font-size: 2.25rem !important;
+    }
+
 }
 

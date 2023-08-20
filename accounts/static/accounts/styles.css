@@ -1,0 +1,105 @@
+.blog-header-logo {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+    font-weight: bold;
+    font-size: 3rem !important;
+}
+
+.blog-header-logo:hover {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, a {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+    font-weight: bold;
+}
+
+.form-signin {
+    max-width: 500px;
+    padding: 3rem 2rem;
+    margin-bottom: 5rem;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.btn-bd-primary {
+    --bd-violet-bg: #000000;
+    --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: var(--bd-violet-bg);
+    --bs-btn-border-color: var(--bd-violet-bg);
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: #2c2c2c;
+    --bs-btn-hover-border-color: #5a5a5a;
+    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: #2b2b2b;
+    --bs-btn-active-border-color: #5a5a5a;
+}
+
+.bd-mode-toggle {
+    z-index: 1500;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.b-example-divider {
+    width: 100%;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+}
+
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
+
+@media screen and (max-width: 990px) {
+
+    .blog-header-logo {
+        font-size: 2.5rem !important;
+    }
+
+    .main-div {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner-text {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+
+    .form-signin {
+        margin-bottom: 2.5rem;
+    }
+
+    .blog-header-logo {
+        font-size: 2.25rem !important;
+    }
+
+}
