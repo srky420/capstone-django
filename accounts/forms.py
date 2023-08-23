@@ -70,7 +70,6 @@ class LoginForm(forms.ModelForm):
 Find account form
 """
 class FindAccountForm(forms.ModelForm):
-    email = forms.CharField(max_length=64, help_text="Required. Enter valid email address.")
     
     class Meta:
         model = User
