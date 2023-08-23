@@ -1,16 +1,14 @@
-<!-- Log in -->
-<div class="form-signin w-100 mx-auto border shadow auth-form fade visually-hidden" id="forgotpass-form">
-    <form>
+{% load crispy_forms_tags %}
+
+<div class="form-signin w-100 mx-auto border shadow auth-form fade visually-hidden" id="forgot-pass">
+    <form action="{% url 'accounts:forgot-pass' %}" method="post">
         <h3 class="mb-3 text-center">Find your account</h3>
 
         <!-- Messages -->
-        {% if view == "login-form" %}{% include "accounts/messages.html" %}{% endif %}
+        {% if view == "forgot-pass" %}{% include "accounts/messages.html" %}{% endif %}
 
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
-            <label for="floatingInput">Email address</label>
-        </div>
-        <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
-        <p class="text-center my-2"><a class="link-underline" href="#" onclick="switch_view('login-form')">Go back</a></p>
+        {% csrf_token %}
+        {% crispy forgot_form %}
+        <p class="text-center my-2"><a class="link-underline" href="#" onclick="switch_view('login')">Go back</a></p>
     </form>
 </div>
