@@ -5,6 +5,7 @@ from accounts.models import User
 
 # Create your models here.
 class Subscription(models.Model):
+    source_id = models.CharField(max_length=64)
     source_name = models.CharField(max_length=64)
     source_category = models.CharField(max_length=64)
     source_description = models.CharField(max_length=1200)

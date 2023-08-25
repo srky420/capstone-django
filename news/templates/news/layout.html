@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'news/styles.css' %}">
     <title>News: {% block title %}{% endblock %}</title>
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100 position-relative">
 
     {% if request.resolver_match.url_name == "index" %}
 
@@ -38,6 +38,7 @@
         <script src="{% static 'news/carousel.js' %}"></script>
         <script src="{% static 'news/tabs.js' %}"></script>
         <script src="{% static 'news/main.js' %}"></script>
+        <script src="{% static 'news/subscribe.js' %}"></script>
     {% endif %}
     
     {% block scripts %}{% endblock %}

@@ -8,9 +8,10 @@ function create_sources_lg(sources, heading) {
                 <strong class="d-inline-block mb-2 text-primary-emphasis">${source.category}</strong>
                 <a href="${source.url}" class="mb-0 link-underline link-underline-opacity-0"><h4 class="source-name">${source.name}</h4></a>
                 <p class="my-2">${source.description}</p>
-                <a href="${source.url}" class="btn btn-sm btn-dark position-absolute top-0 end-0 m-2">
-                    <i class="fa fa-plus"></i> Subscribe
-                </a>
+                <button onclick="source_subscription(this, '${source.id}', '${source.name}', '${source.category}', '${source.description.replace(/"/g, '&quot;')}', '${source.url}')" 
+                    class="btn btn-lg btn-dark position-absolute top-0 end-0 m-2">
+                    ${source.subscribed ? `<i class="fa fa-close"></i>`: `<i class="fa fa-plus"></i>`}
+                </button>
             </div>`
         );
     });
@@ -35,9 +36,10 @@ function create_sources_sm(sources, heading) {
                     <strong class="d-inline-block mb-2 text-primary-emphasis">${source.category}</strong>
                     <a href="#" class="mb-0 link-underline link-underline-opacity-0" onclick=""><h4>${source.name}</h4></a>
                     <p class="my-2 text-wrap overflow-hidden">${source.description}</p>
-                    <a href="${source.url}" class="btn btn-sm btn-dark position-absolute top-0 end-0">
-                        <i class="fa fa-plus"></i>
-                    </a>
+                    <button onclick="source_subscription(this, '${source.id}', '${source.name}', '${source.category}', '${source.description.replace(/"/g, '&quot;')}', '${source.url}')" 
+                        class="btn btn-sm btn-dark position-absolute top-0 end-0">
+                        ${source.subscribed ? `<i class="fa fa-close"></i>`: `<i class="fa fa-plus"></i>`}
+                    </button>
                 </div>
             </div>`
         );
@@ -69,4 +71,14 @@ function search_sources(e) {
             source.classList.remove('visually-hidden');
         }
     });
+}
+
+
+// Check for source in subscription
+function check_subscription(source_id, subscriptions) {
+    let sub_ids = [];
+    subscriptions.forEach(sub => {
+        sub_ids.append(sub.id)
+    })
+    return sub_ids.includes(source_id)
 }

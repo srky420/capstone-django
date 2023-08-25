@@ -4,6 +4,12 @@ const loadingSpinner = `<div class="d-flex justify-content-center align-items-ce
                             </div>
                         </div>`;
 
+const placeholderBtnsm = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                        <span class="visually-hidden" role="status">Loading...</span>`;
+
+const placeholderBtnlg = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                        <span role="status">Loading...</span>`;                   
+
 const placeholderCarousel = `<div class="card bg-body-tertiary border-0 placeholder-banner mt-3" aria-hidden="true">
                                 <div class="card-body h-100 d-flex flex-column justify-content-end">
                                     <h5 class="card-title placeholder-glow">
