@@ -10,7 +10,7 @@ function source_subscription(button, id, name, category, description, url) {
         id: id,
         name: name,
         category: category,
-        description: description,
+        description: decodeURIComponent(description),
         url: url
     });
 

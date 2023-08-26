@@ -37,8 +37,7 @@ class HeadlinesView(View):
                 for sub in subscribed_sources:
                     if source["id"] == sub.source_id:
                         source["subscribed"] = True
-                    else:
-                        source["subscribed"] = False
+                        break
                 
         return JsonResponse(response, safe=False, status=200)
     
@@ -54,12 +53,11 @@ class SourcesView(View):
             subscribed_sources = request.user.subscriptions.all()
             
             # Append source to subscribed list in response if both source's ids match
-            for source in response["sources"]:
-                for sub in subscribed_sources:
+            for sub in subscribed_sources:
+                for source in response["sources"]:
                     if source["id"] == sub.source_id:
                         source["subscribed"] = True
-                    else:
-                        source["subscribed"] = False
+                        break
         
         return JsonResponse(response, safe=False, status=200)
     

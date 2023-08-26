@@ -8,7 +8,7 @@ function create_sources_lg(sources, heading) {
                 <strong class="d-inline-block mb-2 text-primary-emphasis">${source.category}</strong>
                 <a href="${source.url}" class="mb-0 link-underline link-underline-opacity-0"><h4 class="source-name">${source.name}</h4></a>
                 <p class="my-2">${source.description}</p>
-                <button onclick="source_subscription(this, '${source.id}', '${source.name}', '${source.category}', '${source.description.replace(/"/g, '&quot;')}', '${source.url}')" 
+                <button onclick="source_subscription(this, '${source.id}', '${source.name}', '${source.category}', '${encodeURIComponent(source.description).replaceAll('\'', '%27')}', '${source.url}')" 
                     class="btn btn-lg btn-dark position-absolute top-0 end-0 m-2">
                     ${source.subscribed ? `<i class="fa fa-close"></i>`: `<i class="fa fa-plus"></i>`}
                 </button>
@@ -36,9 +36,9 @@ function create_sources_sm(sources, heading) {
                     <strong class="d-inline-block mb-2 text-primary-emphasis">${source.category}</strong>
                     <a href="#" class="mb-0 link-underline link-underline-opacity-0" onclick=""><h4>${source.name}</h4></a>
                     <p class="my-2 text-wrap overflow-hidden">${source.description}</p>
-                    <button onclick="source_subscription(this, '${source.id}', '${source.name}', '${source.category}', '${source.description.replace(/"/g, '&quot;')}', '${source.url}')" 
-                        class="btn btn-sm btn-dark position-absolute top-0 end-0">
-                        ${source.subscribed ? `<i class="fa fa-close"></i>`: `<i class="fa fa-plus"></i>`}
+                    <button onclick="source_subscription(this, '${source.id}', '${source.name}', '${source.category}', '${encodeURIComponent(source.description).replaceAll('\'', '%27')}', '${source.url}')" 
+                        class="btn btn-sm btn-dark position-absolute top-0 end-0 m-2">
+                        ${source.subscribed == true ? `<i class="fa fa-close"></i>`: `<i class="fa fa-plus"></i>`}
                     </button>
                 </div>
             </div>`
