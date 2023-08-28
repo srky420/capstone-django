@@ -11,3 +11,12 @@ class Subscription(models.Model):
     source_description = models.CharField(max_length=1200)
     source_url = models.URLField()
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="subscriptions")
+    
+    def serializer(self):
+        return {
+            "id": self.source_id,
+            "name": self.source_name,
+            "category": self.source_category,
+            "description": self.source_description,
+            "url": self.source_url
+        }

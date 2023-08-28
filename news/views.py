@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse, HttpResponseRedirect
 
 from .models import Subscription
-from .utils import get_top_headlines, get_top_sources, get_all_sources, get_everything
+from .utils import get_top_headlines, get_top_sources, get_all_sources, get_everything, get_news_from_sources
 
 
 # Create your views here.
@@ -108,5 +108,28 @@ class SubscribeView(View):
                 )
             sub.save()
             
-            return JsonResponse({"msg": "Subscription created.", "subscribed": True}, status=201)        
+            return JsonResponse({"msg": "Subscription created.", "subscribed": True}, status=201)     
+        
+        
+class DiscoverView(View):    
+    def get(self, request, *args, **kwargs):
+        # Check if logged in
+        if not request.user.is_authenticated:
+            return JsonResponse({"msg": "Not logged in."}, status=403)
+        
+        # Get subscriptions list
+        subscriptions = request.user.subscriptions.all()
+        
+        # Get all news from current user's subscriptions list
+        sources = [source.serializer() for source in subscriptions]
+        response = get_news_from_sources([source["id"] for source in sources])
+        
+        # Append subscribed source to response
+        if len(sources) != 0:
+            response["sources"] = sources
+            # Set subscribed to True for each source
+            for source in response["sources"]:
+                source["subscribed"] = True
+        
+        return JsonResponse(response, safe=False, status=200)
         

@@ -9,7 +9,11 @@ function load_headlines(e) {
     }
     // Sources tab
     else if(tabName == 'sources') {
-        load_sources(tabName)
+        load_sources()
+    }
+    // Discover tab 
+    else if (tabName == 'discover') {
+        load_discover_tab()
     }
     // Other tab
     else {
@@ -161,3 +165,45 @@ function load_sources() {
     })
 }
 
+
+// Load discover tab i.e. subscriptions and news from subscriptions
+function load_discover_tab() {
+    // Get divs
+    const subscriptionsDiv = document.querySelector('#subscriptions');
+    const subscriptionsNewsDiv = document.querySelector('#subscriptions-news');
+
+    // Create placeholders
+    subscriptionsDiv.innerHTML = create_placeholder_articles(2);
+    subscriptionsNewsDiv.innerHTML = create_placeholder_articles(6);
+
+    // Fetch data
+    fetch('discover/')
+    .then(res => {
+
+         // Check status
+         if (res.status == 200) {
+            return res.json().then(data => {
+                console.log(data)
+                
+                // Populate data
+                if (!data.sources) {
+                    subscriptionsDiv.innerHTML = '<h2 class="h-100 text-center my-5">No subscriptions yet</h2>'
+                    subscriptionsNewsDiv.innerHTML = '';
+                }
+                else {
+                    subscriptionsDiv.innerHTML = create_sources_accordion(data.sources, 'Subscriptions');
+                    subscriptionsNewsDiv.innerHTML = create_articles(data.articles, 'From your subcriptions')
+                }
+            })
+        }
+        else if (res.status == 403) {
+            return res.json().then(data => {
+                console.log(data);
+
+                // Redirect to accounts
+                window.location = '/accounts';
+            })
+        }
+    })
+
+}

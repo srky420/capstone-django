@@ -10,4 +10,5 @@ urlpatterns = [
     path("sources/", views.SourcesView.as_view(), name="sources"),
     path("search", views.SearchView.as_view(), name="search"),
     path("subscribe/", views.SubscribeView.as_view(), name="subscribe"),
+    path("discover/", views.DiscoverView.as_view(), name="discover"),
 ]
