@@ -1,12 +1,3 @@
-.profile-pic-overlay {
-    opacity: 0;
-    transition: 0.2s all;
-}
-
-.profile-pic-upload:hover > .profile-pic-overlay {
-    opacity: 100;
-}
-
 .profile-pic {
     object-fit: cover;
     border-radius: 50%;

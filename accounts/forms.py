@@ -27,7 +27,7 @@ class RegisterationForm(UserCreationForm):
             FloatingField("email"),
             FloatingField("password1"),
             FloatingField("password2"),
-            Submit(name="submit", value="Sign up", css_class="w-100")
+            Submit(name="submit", value="Sign up", css_class="btn-dark w-100")
         )
         
         for fieldname in ["username", "email", "password1", "password2"]:
@@ -59,7 +59,7 @@ class LoginForm(forms.ModelForm):
         self.helper.layout = Layout(
             FloatingField("username"),
             FloatingField("password"),
-            Submit(name="submit", value="Sign in", css_class="w-100")
+            Submit(name="submit", value="Sign in", css_class="btn-dark w-100")
         )
         
         for fieldname in ["username", "password"]:
@@ -89,7 +89,7 @@ class FindAccountForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.layout = Layout(
             FloatingField("email"),
-            Submit(name="submit", value="Find Account", css_class="w-100")
+            Submit(name="submit", value="Find Account", css_class="btn-dark w-100")
         )
         
         for fieldname in ["email"]:
@@ -112,7 +112,7 @@ class ResetPasswordForm(SetPasswordForm):
         self.helper.layout = Layout(
             FloatingField("new_password1"),
             FloatingField("new_password2"),
-            Submit(name="submit", value="Reset Password", css_class="w-100")
+            Submit(name="submit", value="Reset Password", css_class="btn-dark w-100")
         )
         
         # Set labels
@@ -137,5 +137,5 @@ class ChangePasswordForm(PasswordChangeForm):
             FloatingField("old_password"),
             FloatingField("new_password1"),
             FloatingField("new_password2"),
-            Submit(name="submit", value="Change Password")
+            Submit(name="submit", value="Change Password", css_class="btn-dark")
         )

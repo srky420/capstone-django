@@ -1,3 +1,13 @@
+.profile-pic-overlay {
+    opacity: 0;
+    transition: 0.2s all;
+}
+
+.profile-pic-upload:hover > .profile-pic-overlay {
+    opacity: 100;
+}
+
+
 #file {
     bottom: 50px; 
     left: 60px;
