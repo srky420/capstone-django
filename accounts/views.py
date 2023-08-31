@@ -4,9 +4,10 @@ from django.contrib import messages
 from django.views import View
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import User
-from .forms import RegisterationForm, LoginForm, FindAccountForm, ResetPasswordForm
+from .forms import RegisterationForm, LoginForm, FindAccountForm, ResetPasswordForm, ChangePasswordForm
 from .utils import generate_email_token, send_email, parse_email_token
 
 
@@ -106,7 +107,8 @@ class AccountVerificationView(View):
             user.save()
             messages.add_message(request, messages.SUCCESS, "Account activated.")
             return HttpResponseRedirect(reverse("accounts:index"))
-        except Exception:
+        except Exception as e:
+            print(e)
             messages.add_message(request, messages.ERROR, "Token expired or invalid.")
             return HttpResponseRedirect(reverse("accounts:index"))
         
@@ -149,7 +151,6 @@ class ResetPasswordView(View):
             })
         except Exception as e:
             messages.add_message(request, messages.ERROR, "Token expired or invalid.")
-            print(e)
             return HttpResponseRedirect(reverse("accounts:index"))
     
     # POST
@@ -175,6 +176,25 @@ class ResetPasswordView(View):
         })
         
         
-class ProfileView(View):
+class ProfileView(LoginRequiredMixin, View):
+    login_url = "/accounts/"
+    
     def get(self, request, *args, **kwargs):
-        pass
+        
+        return render(request, "accounts/profile.html", {
+            "form": ChangePasswordForm(user=request.user),
+        })
+        
+    def post(self, request, *args, **kwargs):
+        form = ChangePasswordForm(request.user, request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, "Password changed.")
+            return HttpResponseRedirect(reverse("accounts:profile"))
+        
+        
+        return render(request, "accounts/profile.html", {
+            "form": form,
+            "show_form": True
+        })
+        

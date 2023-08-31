@@ -4,4 +4,5 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class User(AbstractUser):
-    pass
+    email = models.EmailField(unique=True)
+    profile_pic = models.ImageField(upload_to="images/", default="images/default-profile-pic.jpg")

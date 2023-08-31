@@ -12,7 +12,7 @@ function create_articles(articles, heading) {
         publishedDate = publishedDate.toLocaleDateString();
 
         html += (
-            `<div class="col-lg-6 col-md-12 border py-3">
+            `<div class="col-lg-6 col-md-12 py-3">
                 <div class="row mb-4 h-100">
                     <div class="col-lg col-md-6 col-sm-12 px-3 d-flex flex-column" style="max-height: 300px;">
                         <h5 class="mb-0">${article.title}</h5>

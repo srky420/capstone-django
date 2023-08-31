@@ -201,7 +201,8 @@ function load_discover_tab() {
                 console.log(data);
 
                 // Redirect to accounts
-                window.location = '/accounts';
+                subscriptionsDiv.innerHTML = '<h2 class="h-100 text-center my-5">Please <a href="/accounts" class="heading-link">login</a> first.</h2>'
+                subscriptionsNewsDiv.innerHTML = '';
             })
         }
     })

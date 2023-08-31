@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, SetPasswordForm
+from django.contrib.auth.forms import UserCreationForm, SetPasswordForm, PasswordChangeForm, UserChangeForm
 from django.contrib.auth import authenticate
 from crispy_bootstrap5.bootstrap5 import FloatingField
 from crispy_forms.helper import FormHelper
@@ -118,3 +118,24 @@ class ResetPasswordForm(SetPasswordForm):
         # Set labels
         for fieldname in ["new_password1", "new_password2"]:
             self.fields[fieldname].help_text = None
+            
+
+"""
+Change password form
+"""
+class ChangePasswordForm(PasswordChangeForm):
+    
+    # Creating Floating Fields using crispy bootstrap 5
+    def __init__(self, user, *args, **kwargs):
+        
+        # Set user
+        self.user = user
+        
+        super(PasswordChangeForm, self).__init__(user, *args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            FloatingField("old_password"),
+            FloatingField("new_password1"),
+            FloatingField("new_password2"),
+            Submit(name="submit", value="Change Password")
+        )

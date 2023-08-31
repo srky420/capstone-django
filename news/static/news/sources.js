@@ -4,7 +4,7 @@ function create_sources_lg(sources, heading) {
 
     sources.forEach(source => {
         html += (
-            `<div class="p-3 d-flex flex-column position-relative border source">
+            `<div class="p-3 d-flex flex-column position-relative border border-bottom-0 source">
                 <strong class="d-inline-block mb-2 text-primary-emphasis">${source.category}</strong>
                 <a href="${source.url}" class="mb-0 link-underline link-underline-opacity-0"><h4 class="source-name">${source.name}</h4></a>
                 <p class="my-2">${source.description}</p>
@@ -31,7 +31,7 @@ function create_sources_sm(sources, heading) {
     // Create source columns
     sources.forEach(source => {
         html += (
-            `<div class="col-lg-4 col-md-6 col-sm-12 border py-3">
+            `<div class="col-lg-4 col-md-6 col-sm-12 py-3">
                 <div class="px-3 d-flex flex-column h-100 position-relative">
                     <strong class="d-inline-block mb-2 text-primary-emphasis">${source.category}</strong>
                     <a href="#" class="mb-0 link-underline link-underline-opacity-0" onclick=""><h4>${source.name}</h4></a>
@@ -65,7 +65,6 @@ function create_sources_accordion(sources, heading) {
                             <div class="accordion-body">
                                 <div class="row">`
 
-    // Create source columns
     // Create source columns
     sources.forEach(source => {
         html += (
@@ -109,14 +108,4 @@ function search_sources(e) {
             source.classList.remove('visually-hidden');
         }
     });
-}
-
-
-// Check for source in subscription
-function check_subscription(source_id, subscriptions) {
-    let sub_ids = [];
-    subscriptions.forEach(sub => {
-        sub_ids.append(sub.id)
-    })
-    return sub_ids.includes(source_id)
 }

@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load crispy_forms_tags %}
+
 {% block title %} Search {% endblock %}
 
 {% block body %}
@@ -38,28 +40,46 @@
         </div>
     </header>
 
-    <!-- Search input -->
-    <div class="input-group bg-dark">
-        <input type="text" class="form-control form-control-lg rounded-0" placeholder="Search for Articles..." id="search-input">
-        <button class="btn btn-dark btn-lg rounded-0" id="search-btn">Search</button>
+    <hr class="position-absolute w-100 start-0 m-0">
+
+    <div class="my-5 text-center">
+        <div class="my-3">
+            <img src="{{ request.user.profile_pic.url }}" class="profile-pic profile-pic-lg" alt="profile-pic">
+        </div>
+        <div class="my-3">
+            <h5>{{ request.user.username }}</h5>
+            <p>{{ request.user.email }}</p>
+            <p><small class="text-body-secondary">Date Joined: {{ request.user.date_joined }}</small></p>
+        </div>
     </div>
 
-    <!-- Search results div -->
-    <div id="search-results" class="my-5">
-        <h3 class="d-flex align-items-center justify-content-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-file-richtext me-2" viewBox="0 0 16 16">
-                <path d="M7 4.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V7.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V7s1.54-1.274 1.639-1.208zM5 9a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
-                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
-            </svg>
-            Nothing yet.</h3>
+    <!-- Profile info -->
+    <div class="accordion my-5 rounded-0" id="accordionFlushExample">
+        <div class="accordion-item border-2 rounded-0">
+            <h2 class="accordion-header">
+                <button class="accordion-button rounded-0 {% if not show_form %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    <h3 class="m-0">Change Password</h3>
+                </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse {% if show_form %}show{% endif %}" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    {% include "accounts/messages.html" %}
+                    {% crispy form %}
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item border-2 rounded-0">
+            <h2 class="accordion-header">
+                <button class="accordion-button rounded-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    <h3 class="m-0">Subscriptions</h3>
+                </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    
+                </div>
+            </div>
+        </div>
     </div>
 
 {% endblock %}
-
-{% block scripts %}
-    <script src="{% static 'news/search.js' %}"></script>
-{% endblock %}
-
-
-
-

@@ -15,10 +15,10 @@
                 {% if request.user.is_authenticated %}
                         <div class="dropdown">
                             <button class="btn btn-dark btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ request.user.username }}
+                                <img src="{{ request.user.profile_pic.url }}" class="profile-pic profile-pic-sm" alt="profile-pic">
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item mb-2 px-2" href="#">Profile</a></li>
+                                <li><a class="dropdown-item mb-2 px-2" href="{% url 'accounts:profile' %}">Profile</a></li>
                                 <li><a class="dropdown-item px-2" href="{% url 'accounts:logout' %}">Log out</a></li>
                             </ul>
                         </div>

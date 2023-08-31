@@ -33,7 +33,7 @@ def get_top_sources(category):
             return e
         
     try:
-        return api.get_sources(category=category)
+        return api.get_sources(category=category, language="en")
     except NewsAPIException as e:
         return e
     
