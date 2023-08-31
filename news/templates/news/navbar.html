@@ -18,13 +18,13 @@
                                 <img src="{{ request.user.profile_pic.url }}" class="profile-pic profile-pic-md" alt="profile-pic">
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item mb-2 px-2" href="{% url 'accounts:profile' %}">Profile</a></li>
-                                <li><a class="dropdown-item px-2" href="{% url 'accounts:logout' %}">Log out</a></li>
+                                <li><a class="dropdown-item p-2" href="{% url 'accounts:profile' %}">Profile</a></li>
+                                <li><a class="dropdown-item p-2" href="{% url 'accounts:logout' %}">Log out</a></li>
                             </ul>
                         </div>
                     </a>
                 {% else %}
-                    <a class="btn btn-sm btn-dark" href="{% url 'accounts:index' %}">Sign up</a>
+                    <a class="btn btn-sm btn-primary" href="{% url 'accounts:index' %}">Sign up</a>
                 {% endif %}
             </div>
         </div>

@@ -1,6 +1,6 @@
 // Create sources list with info for sources tab
 function create_sources_lg(sources, heading) {
-    let html = `<div class="w-100 p-3 bg-dark text-light border border-2 border-bottom-0"><h3 class="m-0">${heading}</h3></div>`;
+    let html = `<div class="w-100 p-3 bg-dark text-light border border border-bottom-0"><h3 class="m-0">${heading}</h3></div>`;
 
     sources.forEach(source => {
         html += (
@@ -25,7 +25,7 @@ function create_sources_lg(sources, heading) {
 // Create sources grid for use in other tabs
 function create_sources_sm(sources, heading) {
     // Create initial html
-    let html = `<div class="w-100 p-3 bg-dark text-light border border-2 border-bottom-0"><h3 class="m-0">${heading}</h3></div>
+    let html = `<div class="w-100 p-3 bg-dark text-light border border-bottom-0"><h3 class="m-0">${heading}</h3></div>
                 <div class="row mb-5 border mx-0 overflow-auto" style="height: 400px;">`;
     
     // Create source columns

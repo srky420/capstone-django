@@ -1,7 +1,7 @@
 // Generate articles html
 function create_articles(articles, heading) {
     // Create row
-    let html = `<div class="w-100 p-3 bg-dark text-light border border-2 border-bottom-0"><h3 class="m-0">${heading}</h3></div>
+    let html = `<div class="w-100 p-3 bg-dark text-light border border border-bottom-0"><h3 class="m-0">${heading}</h3></div>
                 <div class="row mb-5 border mx-0">`;
 
     // Create columns
