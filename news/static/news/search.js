@@ -26,6 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(res => res.json())
         .then(data => {
 
+            console.log(data);
+
+            // Remove nulls
+            const articles = data.articles.filter(article => {
+                if (article.title && article.description && article.url) {
+                    return article
+                }
+            })
+
             // Empty out results div
             resultsDiv.innerHTML = '';
 
@@ -36,12 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.status == 'ok') {
 
                 // Check if not articles were found
-                const articles = data.articles;
                 if (articles.length == 0) {
                     resultsDiv.innerHTML +=  `<h4 class="my-5">No results found</h4>`;
                 }
                 else {
-                    resultsDiv.innerHTML += create_articles(data.articles, 'Search Results');
+                    resultsDiv.innerHTML += create_articles(articles, 'Search Results');
                 }
             }
             // Enable search btn

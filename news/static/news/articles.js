@@ -16,13 +16,13 @@ function create_articles(articles, heading) {
                 <div class="row mb-4 h-100">
                     <div class="col-lg col-md-6 col-sm-12 px-3 d-flex flex-column" style="max-height: 300px;">
                         <h5 class="mb-0">${article.title}</h5>
-                        <small class="my-1 text-body-secondary">${publishedDate} ${article.author != null ? 'by ' + article.author : ''}</small>
+                        <small class="my-1 text-body-secondary overflow-hidden">${publishedDate} ${article.author != null ? 'by ' + article.author : ''}</small>
                         <p class="card-text mb-auto text-wrap overflow-hidden">${article.description != null ? article.description : ''}</p>
                         <a href="${article.url}" class="link-underline link-offset-3 mt-auto mb-2">
                             Continue reading
                         </a>
                     </div>
-                    <div class="col-lg col-md-6 col-sm-12 article-img-container">
+                    <div class="col-lg col-md-6 col-sm-12 article-img-container" style="max-height: 300px;">
                         <img src="${article.urlToImage}" 
                             alt="carousel-pic-1" class="article-img" onError="this.onerror=null; this.src='../static/news/img/placeholder.jpg';">
                     </div>

@@ -198,3 +198,18 @@ class ProfileView(LoginRequiredMixin, View):
             "show_form": True
         })
         
+        
+class ChangeProfilePicView(LoginRequiredMixin, View):
+    login_url = "/accounts/"
+    
+    def post(self, request, *args, **kwargs):
+        if not request.FILES.get("file"):
+            return HttpResponseRedirect(reverse("accounts:profile"))
+        
+        user = User.objects.get(pk=request.user.id)
+        file = request.FILES["file"]
+        user.profile_pic = file
+        user.save()
+        
+        return HttpResponseRedirect(reverse("accounts:profile"))
+        

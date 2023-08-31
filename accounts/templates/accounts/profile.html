@@ -24,8 +24,8 @@
             <div class="col-4 d-flex justify-content-end align-items-center">
                 {% if request.user.is_authenticated %}
                         <div class="dropdown">
-                            <button class="btn btn-dark btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{ request.user.profile_pic.url }}" class="profile-pic profile-pic-sm" alt="profile-pic">
+                            <button class="btn bg-transparent border-0 p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{{ request.user.profile_pic.url }}" class="profile-pic profile-pic-md" alt="profile-pic">
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item mb-2 px-2" href="{% url 'accounts:profile' %}">Profile</a></li>
@@ -43,8 +43,8 @@
     <hr class="position-absolute w-100 start-0 m-0">
 
     <div class="my-5 text-center">
-        <div class="my-3">
-            <img src="{{ request.user.profile_pic.url }}" class="profile-pic profile-pic-lg" alt="profile-pic">
+        <div class="d-flex justify-content-center w-100 ms-auto">
+            {% include "accounts/profile-pic.html" %}
         </div>
         <div class="my-3">
             <h5>{{ request.user.username }}</h5>

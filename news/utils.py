@@ -12,12 +12,12 @@ def get_top_headlines(category):
     """
     if category == "world":
         try:
-            return api.get_top_headlines(page_size=22, page=1, language="en")
+            return api.get_top_headlines(page_size=100, page=1, language="en")
         except NewsAPIException as e:
             return e
         
     try:
-        return api.get_top_headlines(page_size=20, page=1, category=category, language="en")
+        return api.get_top_headlines(page_size=100, page=1  ,category=category, language="en")
     except NewsAPIException as e:
         return e
     
@@ -53,7 +53,7 @@ def get_everything(q):
     Returns search results of query
     """
     try:
-        return api.get_everything(q=q)
+        return api.get_everything(q=q, language="en")
     except NewsAPIException as e:
         return e
     
@@ -68,6 +68,6 @@ def get_news_from_sources(sources_list):
     sources = ",".join(sources_list)
     
     try:
-        return api.get_top_headlines(sources=sources)
+        return api.get_top_headlines(sources=sources, page_size=100, page=1)
     except NewsAPIException as e:
         return e

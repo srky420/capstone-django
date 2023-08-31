@@ -44,12 +44,19 @@ function load_world_headlines(category, tab_id) {
         }
         if (data.status == "ok") {
 
+            // Remove nulls
+            const articles = data.articles.filter(article => {
+                if (article.title && article.description && article.url) {
+                    return article
+                }
+            })
+
             // Articles distribution for different layouts
-            const mainArticles = data.articles.slice(0, 4);
-            const articlesFirst = data.articles.slice(4, 8);
-            const wideArticleFirst = data.articles[8];
-            const articlesSecond = data.articles.slice(9, data.articles.length - 1);
-            const wideArticleSecond = data.articles[data.articles.length - 1]
+            const mainArticles = articles.slice(0, 4);
+            const articlesFirst = articles.slice(4, 8);
+            const wideArticleFirst = articles[8];
+            const articlesSecond = articles.slice(9, 13);
+            const wideArticleSecond = articles[13];
             const sources = data.sources;
 
             // Creating article layouts
@@ -89,13 +96,22 @@ function load_category_headlines(category, tab_id) {
             console.log(data.message);
         }
         if (data.status == 'ok') {
+
+            // Remove nulls
+            const articles = data.articles.filter(article => {
+                if (article.title && article.description && article.url) {
+                    return article
+                }
+            })
+
+            // Capitalize category name
             const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
 
             // Create articles distribution
-            const articleWideFirst = data.articles[0];
-            const articlesFirst = data.articles.slice(1, 3);
-            const aritcleWideSecond = data.articles[3];
-            const articlesSecond = data.articles.slice(4);
+            const articleWideFirst = articles[0];
+            const articlesFirst = articles.slice(1, 3);
+            const aritcleWideSecond = articles[3];
+            const articlesSecond = articles.slice(4);
             const sources = data.sources;
 
             // Create article layouts
@@ -184,7 +200,14 @@ function load_discover_tab() {
          if (res.status == 200) {
             return res.json().then(data => {
                 console.log(data)
-                
+
+                // Remove nulls
+                const articles = data.articles.filter(article => {
+                    if (article.title && article.description && article.url) {
+                        return article
+                    }
+                })
+
                 // Populate data
                 if (!data.sources) {
                     subscriptionsDiv.innerHTML = '<h2 class="h-100 text-center my-5">No subscriptions yet</h2>'
@@ -192,7 +215,7 @@ function load_discover_tab() {
                 }
                 else {
                     subscriptionsDiv.innerHTML = create_sources_accordion(data.sources, 'Subscriptions');
-                    subscriptionsNewsDiv.innerHTML = create_articles(data.articles, 'From your subcriptions')
+                    subscriptionsNewsDiv.innerHTML = create_articles(articles, 'From your subcriptions')
                 }
             })
         }

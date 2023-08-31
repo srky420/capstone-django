@@ -1,0 +1,13 @@
+<div class="card text-bg-dark rounded-circle border-0 position-relative profile-pic-lg">
+    <img src="{{ request.user.profile_pic.url }}" alt="" srcset="" class="card-img profile-pic profile-pic-lg">
+    <div class="card-img-overlay profile-pic-upload" 
+        onmouseout="this.querySelector('#file').classList.remove('show')" 
+        onmouseover="this.querySelector('#file').classList.add('show');">
+        <form action="{% url 'accounts:change-profile-pic' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="file" id="file" class="position-absolute w-100 fade z-3" onchange="this.form.submit()">
+        </form>
+        <div class="bg-dark bg-opacity-25 w-100 h-100 position-absolute rounded-circle start-0 top-0 profile-pic-overlay"></div>
+    </div>
+</div>
+

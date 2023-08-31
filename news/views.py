@@ -18,9 +18,10 @@ class IndexView(View):
     
 class HeadlinesView(View):
     def get(self, request, category):
+        
         # Get top headlines
         response = get_top_headlines(category)
-        
+                        
         # Get top sources and add to response
         sources = get_top_sources(category)
         if response["status"] == "ok" and sources["status"] == "ok":
@@ -44,6 +45,7 @@ class HeadlinesView(View):
     
 class SourcesView(View):
     def get(self, request, *args, **kwargs):
+        
         response = get_all_sources()
                 
         # Get user's subscriptions if user is authenticated
@@ -113,6 +115,7 @@ class SubscribeView(View):
         
 class DiscoverView(View):    
     def get(self, request, *args, **kwargs):
+        
         # Check if logged in
         if not request.user.is_authenticated:
             return JsonResponse({"msg": "Not logged in."}, status=403)
