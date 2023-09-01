@@ -42,6 +42,7 @@
 
     <hr class="position-absolute w-100 start-0 m-0">
 
+    <!-- Profile info -->
     <div class="my-5 text-center">
         <div class="d-flex justify-content-center w-100 ms-auto">
             {% include "accounts/profile-pic.html" %}
@@ -53,7 +54,7 @@
         </div>
     </div>
 
-    <!-- Profile info -->
+    <!-- Profile accordion -->
     <div class="accordion my-5 rounded-0" id="accordionFlushExample">
         <div class="accordion-item border-2 rounded-0">
             <h2 class="accordion-header">
@@ -76,10 +77,33 @@
             </h2>
             <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                    
+
+                    <div class="row mb-5 mx-0 overflow-auto">
+                    {% for source in subscriptions %}
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 py-3" id="{{ source.source_id }}">
+                            <div class="px-3 d-flex flex-column h-100 position-relative">
+                                <strong class="d-inline-block mb-2 text-primary-emphasis">{{ source.source_category }}</strong>
+                                <a href="#" class="mb-0 link-underline link-underline-opacity-0" onclick=""><h4>{{ source.source_name }}</h4></a>
+                                <p class="my-2 text-wrap overflow-hidden">{{ source.source_description }}</p>
+                                <button onclick="source_unsubscribe(this)" data-source-id="{{ source.source_id }}"
+                                    class="btn btn-sm btn-dark position-absolute top-0 end-0 m-2">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    {% empty %}
+                        <h2 class="h-100 text-center my-5">No subscriptions yet</h2>
+                    {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'accounts/unsubscribe.js' %}"></script>
 {% endblock %}

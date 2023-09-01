@@ -82,7 +82,7 @@ function load_category_headlines(category, tab_id) {
 
     // Show placeholders until content loaded
     contentTab.innerHTML = placeholderArticleWide;
-    contentTab.innerHTML += create_placeholder_articles(2);
+    contentTab.innerHTML += create_placeholder_articles(4);
     contentTab.innerHTML += placeholderArticleWide
     
     // Fetch data
@@ -109,9 +109,9 @@ function load_category_headlines(category, tab_id) {
 
             // Create articles distribution
             const articleWideFirst = articles[0];
-            const articlesFirst = articles.slice(1, 3);
-            const aritcleWideSecond = articles[3];
-            const articlesSecond = articles.slice(4);
+            const articlesFirst = articles.slice(1, 5);
+            const aritcleWideSecond = articles[5];
+            const articlesSecond = articles.slice(6);
             const sources = data.sources;
 
             // Create article layouts

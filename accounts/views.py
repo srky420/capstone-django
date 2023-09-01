@@ -1,11 +1,14 @@
+import json
+
 from django.shortcuts import render
 from django.urls import reverse
 from django.contrib import messages
 from django.views import View
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from news.models import Subscription
 from .models import User
 from .forms import RegisterationForm, LoginForm, FindAccountForm, ResetPasswordForm, ChangePasswordForm
 from .utils import generate_email_token, send_email, parse_email_token
@@ -181,7 +184,11 @@ class ProfileView(LoginRequiredMixin, View):
     
     def get(self, request, *args, **kwargs):
         
+        # Get subscripitons
+        subs = request.user.subscriptions.all()
+        
         return render(request, "accounts/profile.html", {
+            "subscriptions": subs,
             "form": ChangePasswordForm(user=request.user),
         })
         
@@ -212,4 +219,18 @@ class ChangeProfilePicView(LoginRequiredMixin, View):
         user.save()
         
         return HttpResponseRedirect(reverse("accounts:profile"))
+    
+
+class UnsubscribeView(View):
+    def post(self, request, *args, **kwargs):
+        # Load json data
+        data = json.loads(request.body)
+        if not data.get("source_id"):
+            return JsonResponse({"error": "Invalid data."}, status=400)
         
+        try:
+            sub = Subscription.objects.get(source_id=data["source_id"], user=request.user)
+            sub.delete()
+            return JsonResponse({"msg": "Subscription removed."}, status=201)
+        except Subscription.DoesNotExist:
+            return JsonResponse({"msg": "Subscription does not exist."}, status=400)

@@ -25,7 +25,7 @@ const placeholderCarousel = `<div class="card bg-body-tertiary border-0 placehol
                                 </div>
                             </div>`;
 
-const placeholderArticle = `<div class="col-lg-6 col-md-12 border py-3 placeholder-card">
+const placeholderArticle = `<div class="col-lg-6 col-md-12 py-3 placeholder-card">
                                 <div class="row mb-4 h-100">
                                     <div class="col-lg col-md-6 col-sm-12 px-3 placeholder-glow">
                                         <span class="placeholder col-7"></span>
@@ -48,7 +48,7 @@ const placeholderArticleWide = `<div class="p-5 my-5 position-relative bg-body-t
                                     </div>
                                 </div>`;
 
-const placeholderSource = `<div class="p-3 d-flex flex-column position-relative border placeholder-glow" style="height: 150px;">
+const placeholderSource = `<div class="p-3 d-flex flex-column position-relative placeholder-glow" style="height: 150px;">
                                 <div class="placeholder-glow">  
                                     <span class="placeholder col-8"></span>
                                     <span class="placeholder col-4"></span>
@@ -62,7 +62,7 @@ const placeholderSource = `<div class="p-3 d-flex flex-column position-relative 
 function create_placeholder_articles(num) {
 
     // Main html
-    let html = `<div class="placeholder-glow my-3"><span class="placeholder col-3"></span></div><div class="row m-0">`;
+    let html = `<div class="placeholder-glow my-3"><span class="placeholder col-3"></span></div><div class="row m-0 border">`;
 
     // Create required num of placholder articles
     for (let i = 0; i < num; i++) {
@@ -79,7 +79,7 @@ function create_placeholder_articles(num) {
 function create_placeholder_sources(num) {
 
     // Main html
-    let html = `<div class="placeholder-glow my-3"><span class="placeholder col-3"></span></div><div class="row m-0">`;
+    let html = `<div class="placeholder-glow my-3"><span class="placeholder col-3"></span></div><div class="row m-0 border">`;
 
     // Create required num of placholder articles
     for (let i = 0; i < num; i++) {

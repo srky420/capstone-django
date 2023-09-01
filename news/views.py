@@ -112,7 +112,7 @@ class SubscribeView(View):
             
             return JsonResponse({"msg": "Subscription created.", "subscribed": True}, status=201)     
         
-        
+       
 class DiscoverView(View):    
     def get(self, request, *args, **kwargs):
         
@@ -135,4 +135,14 @@ class DiscoverView(View):
                 source["subscribed"] = True
         
         return JsonResponse(response, safe=False, status=200)
+    
+    
+class FAQsView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "news/faqs.html")
+    
+
+class AboutView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "news/about.html")
         

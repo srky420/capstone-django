@@ -17,7 +17,7 @@ def get_top_headlines(category):
             return e
         
     try:
-        return api.get_top_headlines(page_size=100, page=1  ,category=category, language="en")
+        return api.get_top_headlines(page_size=100, page=1, category=category, language="en")
     except NewsAPIException as e:
         return e
     

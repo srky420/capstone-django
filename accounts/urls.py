@@ -13,5 +13,6 @@ urlpatterns = [
     path("verify/<str:token>", views.AccountVerificationView.as_view(), name="verify"),
     path("reset-pass/<str:token>", views.ResetPasswordView.as_view(), name="reset-pass"),
     path("profile", views.ProfileView.as_view(), name="profile"),
-    path("change-profile-pic", views.ChangeProfilePicView.as_view(), name="change-profile-pic")
+    path("change-profile-pic", views.ChangeProfilePicView.as_view(), name="change-profile-pic"),
+    path("unsubscribe/", views.UnsubscribeView.as_view(), name="unsubscribe")
 ]
