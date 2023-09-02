@@ -1,28 +1,3 @@
-.profile-pic-overlay {
-    opacity: 0;
-    transition: 0.2s all;
-}
-
-.profile-pic-upload:hover > .profile-pic-overlay {
-    opacity: 100;
-}
-
-
-#file {
-    bottom: 50px; 
-    left: 60px;
-}
-
-#file::-webkit-file-upload-button {
-    visibility: hidden !important;
-}
-
-#file::before {
-    content: "\f030" !important;
-    font-family: fontAwesome;
-    font-size: 30px;
-}
-
 .profile-pic {
     object-fit: cover;
     border-radius: 50%;
@@ -177,6 +152,10 @@ h1, h2, h3, h4, h5, h6, a {
     }
 
     a {
+        font-size: small !important;
+    }
+
+    .category-name {
         font-size: small !important;
     }
 }

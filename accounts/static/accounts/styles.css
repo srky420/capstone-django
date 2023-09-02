@@ -1,3 +1,29 @@
+.profile-pic-overlay {
+    opacity: 0;
+    transition: 0.2s all;
+}
+
+.profile-pic-upload:hover > .profile-pic-overlay {
+    opacity: 100;
+}
+
+#file {
+    bottom: 50px;
+    left: 60px;
+    visibility: hidden;
+}
+
+#file::-webkit-file-upload-button {
+    visibility: hidden !important;
+}
+
+#file::before {
+    content: "\f030" !important;
+    font-family: fontAwesome;
+    font-size: 30px;
+    visibility: visible;
+}
+
 .profile-pic {
     object-fit: cover;
     border-radius: 50%;
@@ -28,7 +54,7 @@
     text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, a {
     font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
     font-weight: bold;
 }
@@ -90,6 +116,29 @@ h1, h2, h3, h4, h5, h6 {
 .bi {
     vertical-align: -.125em;
     fill: currentColor;
+}
+
+@media screen and (max-width: 1200px) {
+    
+    h4, h5, h6 {
+        font-size: medium !important;
+    }
+
+    h1, h2, h3, .heading-link {
+        font-size: 20px !important;
+    }
+
+    p {
+        font-size: small !important;
+    }
+
+    a {
+        font-size: small !important;
+    }
+
+    .category-name {
+        font-size: small !important;
+    }
 }
 
 @media screen and (max-width: 990px) {

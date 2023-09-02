@@ -2,18 +2,20 @@
 
 {% block body %}
 
-    <div class="banner-text mb-5 p-3">
-        <h1>Stay informed by subscribing to hundreds of news sources.</h1>
+    <div class="h-100 d-flex align-items-center justify-content-center main-div">
+        <div class="banner-text mb-5 p-3">
+            <h1>Stay informed by subscribing to hundreds of news sources.</h1>
+        </div>
+
+        <!-- Login view -->
+        {% include "accounts/login-form.html" %}
+
+        <!-- Register view -->
+        {% include "accounts/register-form.html" %}
+
+        <!-- Forgot pass view -->
+        {% include "accounts/forgotpass-form.html" %}
     </div>
-
-    <!-- Login view -->
-    {% include "accounts/login-form.html" %}
-
-    <!-- Register view -->
-    {% include "accounts/register-form.html" %}
-
-    <!-- Forgot pass view -->
-    {% include "accounts/forgotpass-form.html" %}
 
     {{ view | json_script:"view" }}
 

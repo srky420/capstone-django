@@ -18,6 +18,7 @@
                                 <img src="{{ request.user.profile_pic.url }}" class="profile-pic profile-pic-md" alt="profile-pic">
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
+                                <li class="text-center border-bottom p-2 pb-3 mb-2"><strong>{{ request.user.username }}</strong></li>
                                 <li><a class="dropdown-item p-2" href="{% url 'accounts:profile' %}">Profile</a></li>
                                 <li><a class="dropdown-item p-2" href="{% url 'accounts:logout' %}">Log out</a></li>
                             </ul>
