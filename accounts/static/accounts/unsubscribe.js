@@ -25,6 +25,11 @@ function source_unsubscribe(button) {
 
         // Remove source from suscriptions accordion
         document.querySelector(`#${source_id}`).remove();
+
+        // Check subs count
+        if (data.count == 0) {
+            document.querySelector('#sources-div').innerHTML = `<h2 class="h-100 text-center my-5">No subscriptions.</h2>`;
+        }
         
     })
     .catch(err => {

@@ -145,4 +145,9 @@ class FAQsView(View):
 class AboutView(View):
     def get(self, request, *args, **kwargs):
         return render(request, "news/about.html")
+    
+
+class PrivacyPolicyView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "news/privacy-policy.html")
         

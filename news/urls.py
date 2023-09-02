@@ -12,5 +12,6 @@ urlpatterns = [
     path("subscribe/", views.SubscribeView.as_view(), name="subscribe"),
     path("discover/", views.DiscoverView.as_view(), name="discover"),
     path("faqs/", views.FAQsView.as_view(), name="faqs"),
-    path("about/", views.AboutView.as_view(), name="about")
+    path("about/", views.AboutView.as_view(), name="about"),
+    path("privacy-policy/", views.PrivacyPolicyView.as_view(), name="privacy-policy")
 ]

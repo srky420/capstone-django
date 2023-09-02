@@ -128,6 +128,10 @@ h1, h2, h3, h4, h5, h6, a {
         font-size: 20px !important;
     }
 
+    .banner-text {
+        font-size: 30px !important;
+    }
+
     p {
         font-size: small !important;
     }

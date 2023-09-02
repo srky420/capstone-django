@@ -18,7 +18,7 @@ from .utils import generate_email_token, send_email, parse_email_token
 class IndexView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            return HttpResponseRedirect(reverse("news:index"))
+            return HttpResponseRedirect(reverse("accounts:profile"))
     
         return render(request, "accounts/index.html", {
             "login_form": LoginForm(),
@@ -231,6 +231,6 @@ class UnsubscribeView(View):
         try:
             sub = Subscription.objects.get(source_id=data["source_id"], user=request.user)
             sub.delete()
-            return JsonResponse({"msg": "Subscription removed."}, status=201)
+            return JsonResponse({"msg": "Subscription removed.", "count": request.user.subscriptions.count()}, status=201)
         except Subscription.DoesNotExist:
             return JsonResponse({"msg": "Subscription does not exist."}, status=400)

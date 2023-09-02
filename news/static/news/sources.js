@@ -9,7 +9,7 @@ function create_sources_lg(sources, heading) {
                 <a href="${source.url}" class="mb-0 link-underline link-underline-opacity-0"><h4 class="source-name">${source.name}</h4></a>
                 <p class="my-2">${source.description}</p>
                 <button type="button" onclick="source_subscription(this, '${source.id}', '${source.name}', '${source.category}', '${encodeURIComponent(source.description).replaceAll('\'', '%27')}', '${source.url}')" 
-                    class="btn btn-lg btn-dark position-absolute top-0 end-0 m-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Subscribe">
+                    class="btn btn-lg btn-secondary position-absolute top-0 end-0 m-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Subscribe">
                     ${source.subscribed ? `<i class="fa fa-minus"></i>`: `<i class="fa fa-plus"></i>`}
                 </button>
             </div>`
@@ -37,7 +37,7 @@ function create_sources_sm(sources, heading) {
                     <a href="#" class="mb-0 link-underline link-underline-opacity-0" onclick=""><h4>${source.name}</h4></a>
                     <p class="my-2 text-wrap overflow-hidden">${source.description}</p>
                     <button onclick="source_subscription(this, '${source.id}', '${source.name}', '${source.category}', '${encodeURIComponent(source.description).replaceAll('\'', '%27')}', '${source.url}')" 
-                        class="btn btn-sm btn-dark position-absolute top-0 end-0 m-2">
+                        class="btn btn-sm btn-secondary position-absolute top-0 end-0 m-2">
                         ${source.subscribed == true ? `<i class="fa fa-minus"></i>`: `<i class="fa fa-plus"></i>`}
                     </button>
                 </div>
@@ -68,13 +68,13 @@ function create_sources_accordion(sources, heading) {
     // Create source columns
     sources.forEach(source => {
         html += (
-            `<div class="col-lg-4 col-md-6 col-sm-12 border py-3">
+            `<div class="col-lg-4 col-md-6 col-sm-12 py-3">
                 <div class="px-3 d-flex flex-column h-100 position-relative">
                     <strong class="d-inline-block mb-2 text-primary-emphasis category-name">${source.category}</strong>
                     <a href="#" class="mb-0 link-underline link-underline-opacity-0" onclick=""><h4>${source.name}</h4></a>
                     <p class="my-2 text-wrap overflow-hidden">${source.description}</p>
                     <button onclick="source_subscription(this, '${source.id}', '${source.name}', '${source.category}', '${encodeURIComponent(source.description).replaceAll('\'', '%27')}', '${source.url}')" 
-                        class="btn btn-sm btn-dark position-absolute top-0 end-0 m-2">
+                        class="btn btn-sm btn-secondary position-absolute top-0 end-0 m-2">
                         ${source.subscribed == true ? `<i class="fa fa-minus"></i>`: `<i class="fa fa-plus"></i>`}
                     </button>
                 </div>

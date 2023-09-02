@@ -4,8 +4,6 @@
 
 {% load crispy_forms_tags %}
 
-{% block title %} Search {% endblock %}
-
 {% block body %}
 
     <!-- Profile info -->
@@ -44,7 +42,7 @@
             <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body p-0">
 
-                    <div class="row mb-5 mx-0 overflow-auto">
+                    <div class="row mb-5 mx-0 overflow-auto" id="sources-div">
                     {% for source in subscriptions %}
 
                         <div class="col-lg-4 col-md-6 col-sm-12 py-3" id="{{ source.source_id }}">
@@ -60,7 +58,7 @@
                         </div>
 
                     {% empty %}
-                        <h2 class="h-100 text-center my-5">No subscriptions yet</h2>
+                        <h2 class="h-100 text-center my-5">No subscriptions yet.</h2>
                     {% endfor %}
                     </div>
                 </div>

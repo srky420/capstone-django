@@ -17,7 +17,11 @@
     {% if request.resolver_match.url_name == "index" %}
 
         <!-- Navbar -->
-        {% include "news/navbar.html" %}
+        {% include "news/navbar-primary.html" %}
+
+    {% else %}
+
+        {% include "news/navbar-secondary.html" %}
        
     {% endif %}
 
