@@ -221,7 +221,9 @@ class ChangeProfilePicView(LoginRequiredMixin, View):
         return HttpResponseRedirect(reverse("accounts:profile"))
     
 
-class UnsubscribeView(View):
+class UnsubscribeView(LoginRequiredMixin, View):
+    login_url = "/acconunts/"
+    
     def post(self, request, *args, **kwargs):
         # Load json data
         data = json.loads(request.body)

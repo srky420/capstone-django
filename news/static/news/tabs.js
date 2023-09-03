@@ -57,6 +57,7 @@ function load_world_headlines(category, tab_id) {
             const wideArticleFirst = articles[8];
             const articlesSecond = articles.slice(9, 13);
             const wideArticleSecond = articles[13];
+            const extraArticles = articles.slice(14)
             const sources = data.sources;
 
             // Creating article layouts
@@ -66,6 +67,7 @@ function load_world_headlines(category, tab_id) {
             contentTab.innerHTML += create_sources_sm(sources, 'Top Sources');
             contentTab.innerHTML += create_articles(articlesSecond, 'Top Headlines');
             contentTab.innerHTML += create_wide_article(wideArticleSecond);
+            contentTab.innerHTML += create_articles(extraArticles, 'Headlines');
         }
     })
     .catch(err => {

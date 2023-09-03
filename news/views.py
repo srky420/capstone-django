@@ -49,7 +49,7 @@ class SourcesView(View):
         response = get_all_sources()
                 
         # Get user's subscriptions if user is authenticated
-        if request.user.is_authenticated:
+        if request.user.is_authenticated and response["status"] == "ok":
             
             # Get all subscriptions of current user
             subscribed_sources = request.user.subscriptions.all()
@@ -78,7 +78,7 @@ class SearchView(View):
         return render(request, "news/search.html")
     
     
-class SubscribeView(View):    
+class SubscribeView(View):
     def post(self, request, *args, **kwargs):
         
         # Check if user is authenticated
