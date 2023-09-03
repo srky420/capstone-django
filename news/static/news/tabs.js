@@ -46,7 +46,7 @@ function load_world_headlines(category, tab_id) {
 
             // Remove nulls
             const articles = data.articles.filter(article => {
-                if (article.title && article.description && article.url) {
+                if (article.title && article.description && article.url && article.title != '[Removed]') {
                     return article
                 }
             })
@@ -99,7 +99,7 @@ function load_category_headlines(category, tab_id) {
 
             // Remove nulls
             const articles = data.articles.filter(article => {
-                if (article.title && article.description && article.url) {
+                if (article.title && article.description && article.url && article.title != '[Removed]') {
                     return article
                 }
             })
@@ -203,7 +203,7 @@ function load_discover_tab() {
 
                 // Remove nulls
                 const articles = data.articles.filter(article => {
-                    if (article.title && article.description && article.url) {
+                    if (article.title && article.description && article.url && article.title != '[Removed]') {
                         return article
                     }
                 })

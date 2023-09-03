@@ -28,7 +28,7 @@ def get_top_sources(category):
     """
     if category == "world":
         try:
-            return api.get_sources(language="en", country="us")
+            return api.get_sources(language="en")
         except NewsAPIException as e:
             return e
         
