@@ -1,15 +1,15 @@
 // Create sources list with info for sources tab
 function create_sources_lg(sources, heading) {
-    let html = `<div class="w-100 p-3 bg-dark text-light border border border-bottom-0"><h3 class="m-0">${heading}</h3></div>`;
+    let html = `<div class="w-100 p-3 bg-dark text-light border"><h3 class="m-0">${heading}</h3></div>`;
 
     sources.forEach(source => {
         html += (
-            `<div class="p-3 d-flex flex-column position-relative border border-bottom-0 source">
+            `<div class="p-3 d-flex flex-column position-relative border border-top-0 source">
                 <strong class="d-inline-block mb-2 text-primary-emphasis category-name">${source.category}</strong>
                 <a href="${source.url}" class="mb-0 link-underline link-underline-opacity-0"><h4 class="source-name">${source.name}</h4></a>
                 <p class="my-2">${source.description}</p>
                 <button type="button" onclick="source_subscription(this, '${source.id}', '${source.name}', '${source.category}', '${encodeURIComponent(source.description).replaceAll('\'', '%27')}', '${source.url}')" 
-                    class="btn btn-lg btn-secondary position-absolute top-0 end-0 m-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Subscribe">
+                    class="btn btn-lg btn-secondary position-absolute top-0 end-0 m-2">
                     ${source.subscribed ? `<i class="fa fa-minus"></i>`: `<i class="fa fa-plus"></i>`}
                 </button>
             </div>`
