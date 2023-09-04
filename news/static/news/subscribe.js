@@ -36,7 +36,7 @@ function source_subscription(button, id, name, category, description, url) {
                 console.log(data)
                 // Check subscription status
                 if (data.subscribed) {
-                    button.innerHTML = `<i class="fa fa-minus"></i>`;
+                    button.innerHTML = `<i class="fa fa-check"></i>`;
                 }
                 else {
                     button.innerHTML = `<i class="fa fa-plus"></i>`;

@@ -62,12 +62,12 @@ function load_world_headlines(category, tab_id) {
 
             // Creating article layouts
             contentTab.innerHTML = create_carousel('world-tab-carousel', mainArticles);
-            contentTab.innerHTML += create_articles(articlesFirst, "Recent News");
+            contentTab.innerHTML += create_articles(articlesFirst, "Top Headlines");
             contentTab.innerHTML += create_wide_article(wideArticleFirst);
             contentTab.innerHTML += create_sources_sm(sources, 'Top Sources');
-            contentTab.innerHTML += create_articles(articlesSecond, 'Top Headlines');
+            contentTab.innerHTML += create_articles(articlesSecond, 'Recent News');
             contentTab.innerHTML += create_wide_article(wideArticleSecond);
-            contentTab.innerHTML += create_articles(extraArticles, 'Headlines');
+            contentTab.innerHTML += create_articles(extraArticles, 'Recent News');
         }
     })
     .catch(err => {
@@ -120,8 +120,8 @@ function load_category_headlines(category, tab_id) {
             contentTab.innerHTML = create_wide_article(articleWideFirst);
             contentTab.innerHTML += create_articles(articlesFirst, `Recent ${categoryName} News`);
             contentTab.innerHTML += create_wide_article(aritcleWideSecond);
-            contentTab.innerHTML += create_sources_sm(sources, `Top Sources for ${categoryName}`);
-            contentTab.innerHTML += create_articles(articlesSecond, `Top Headlines for ${categoryName}`);
+            contentTab.innerHTML += create_sources_sm(sources, `${categoryName} News Sources`);
+            contentTab.innerHTML += create_articles(articlesSecond, `${categoryName} News`);
         }
     })
     .catch(err => {

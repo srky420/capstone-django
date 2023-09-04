@@ -9,8 +9,8 @@ function create_sources_lg(sources, heading) {
                 <a href="${source.url}" class="mb-0 link-underline link-underline-opacity-0"><h4 class="source-name">${source.name}</h4></a>
                 <p class="my-2">${source.description}</p>
                 <button type="button" onclick="source_subscription(this, '${source.id}', '${source.name}', '${source.category}', '${encodeURIComponent(source.description).replaceAll('\'', '%27')}', '${source.url}')" 
-                    class="btn btn-lg btn-secondary position-absolute top-0 end-0 m-2">
-                    ${source.subscribed ? `<i class="fa fa-minus"></i>`: `<i class="fa fa-plus"></i>`}
+                    class="btn btn-secondary position-absolute top-0 end-0 m-2">
+                    ${source.subscribed ? `<i class="fa fa-check"></i>`: `<i class="fa fa-plus"></i>`}
                 </button>
             </div>`
         );
@@ -37,8 +37,8 @@ function create_sources_sm(sources, heading) {
                     <a href="#" class="mb-0 link-underline link-underline-opacity-0" onclick=""><h4>${source.name}</h4></a>
                     <p class="my-2 text-wrap overflow-hidden">${source.description}</p>
                     <button onclick="source_subscription(this, '${source.id}', '${source.name}', '${source.category}', '${encodeURIComponent(source.description).replaceAll('\'', '%27')}', '${source.url}')" 
-                        class="btn btn-sm btn-secondary position-absolute top-0 end-0 m-2">
-                        ${source.subscribed == true ? `<i class="fa fa-minus"></i>`: `<i class="fa fa-plus"></i>`}
+                        class="btn btn-sm btn-secondary position-absolute top-0 end-0 mx-2">
+                        ${source.subscribed == true ? `<i class="fa fa-check"></i>`: `<i class="fa fa-plus"></i>`}
                     </button>
                 </div>
             </div>`
@@ -62,7 +62,7 @@ function create_sources_accordion(sources, heading) {
                             </button>
                         </h1>
                         <div id="collapse" class="accordion-collapse collapse" data-bs-parent="#subs-accordion">
-                            <div class="accordion-body">
+                            <div class="accordion-body overflow-auto" style="height: 400px">
                                 <div class="row">`
 
     // Create source columns
@@ -74,8 +74,8 @@ function create_sources_accordion(sources, heading) {
                     <a href="#" class="mb-0 link-underline link-underline-opacity-0" onclick=""><h4>${source.name}</h4></a>
                     <p class="my-2 text-wrap overflow-hidden">${source.description}</p>
                     <button onclick="source_subscription(this, '${source.id}', '${source.name}', '${source.category}', '${encodeURIComponent(source.description).replaceAll('\'', '%27')}', '${source.url}')" 
-                        class="btn btn-sm btn-secondary position-absolute top-0 end-0 m-2">
-                        ${source.subscribed == true ? `<i class="fa fa-minus"></i>`: `<i class="fa fa-plus"></i>`}
+                        class="btn btn-sm btn-secondary position-absolute top-0 end-0 mx-2">
+                        ${source.subscribed == true ? `<i class="fa fa-check"></i>`: `<i class="fa fa-plus"></i>`}
                     </button>
                 </div>
             </div>`
