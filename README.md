@@ -1,4 +1,4 @@
-# News (Capstone)
+# News | CS50W: Capstone
 
 A News Aggregator web app that consumes [News API](https://newsapi.org/) with User Authentication, User Verification and Source Subscription features.
 
