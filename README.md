@@ -15,14 +15,13 @@ A News Aggregator web app that consumes [News API](https://newsapi.org/) with Us
 
 ## Overview
 
-
-
+This project(News) provides a huge number of news articles from different sources for users to read. It provides seven different news categories users can choose from and displays news articles in a user-friendly and cohesive manner. 
 
 ## Distinctiveness and Complexity
 
 ### Distinctiveness:
 
-This project(News) provides a huge number of news articles from different sources for users to read. It provides seven different news categories users can choose from and displays news articles in a user-friendly and cohesive manner. This project utilizes an external API and uses [News API's python package](https://github.com/mattlisiv/newsapi-python) to make API calls to fetch news articles.  It also uses JavaScript to dynamically fetch data from beckend and displays it in real-time to the users. Hence why the index page is never reloaded and new content is displayed for the user in each tab of index page. It also shows placeholders while data is being loaded to show layout of the page to the user and make the overall experience user-friendly.
+This project utilizes an external API and uses [News API's python package](https://github.com/mattlisiv/newsapi-python) to make API calls to fetch news articles. It also uses JavaScript to dynamically fetch data from beckend and displays it in real-time to the users. Hence why the index page is never reloaded and new content is displayed for the user in each tab of index page. It also shows placeholders while data is being loaded to show layout of the page to the user and make the overall experience user-friendly.
 
 Other than this, the project also provides a dynamic search option for both news articles and news sources since alot of times people want to search for specific news articles to read or specific sources to subscribe to. The search results are updated in real-time as the user searches for any keywords. Users can also filter sources by category to narrow down their search results. A sources tab allows users to browse, search, filter and subscribe/unsubscribe from news sources. Other than that a list of relevant news sources are shown in each tab of index page and registered users can subscribe/unsubscribe to these sources.
 

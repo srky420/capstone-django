@@ -34,6 +34,7 @@ function source_subscription(button, id, name, category, description, url) {
         if (res.status == 201) {
             return res.json().then(data => {
                 console.log(data)
+
                 // Check subscription status
                 if (data.subscribed) {
                     button.innerHTML = `<i class="fa fa-check"></i>`;

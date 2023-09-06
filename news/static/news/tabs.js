@@ -37,12 +37,13 @@ function load_world_headlines(category, tab_id) {
     fetch(`headlines/${category}`)
     .then(res => res.json())
     .then(data => {
-        console.log(data);
+
         // Check status
         if (data.status == "error") {
             console.log(data.message);
         }
         if (data.status == "ok") {
+            console.log(data);
 
             // Remove nulls
             const articles = data.articles.filter(article => {
@@ -91,13 +92,13 @@ function load_category_headlines(category, tab_id) {
     fetch(`headlines/${category}`)
     .then(res => res.json())
     .then(data => {
-        console.log(data);
         
         // Check status
         if (data.status == 'error') {
             console.log(data.message);
         }
         if (data.status == 'ok') {
+            console.log(data);
 
             // Remove nulls
             const articles = data.articles.filter(article => {
@@ -150,33 +151,38 @@ function load_sources() {
         }
     });
 
-    console.log(categoryFilters);
-
     // Fetch sources data
     fetch('sources/')
     .then(res => res.json())
     .then(data => {
-        console.log(data);
 
-        // Check if filters selected or not
-        if (categoryFilters.length == 0) {
-            // Create sources list
-            sourcesDiv.innerHTML = create_sources_lg(data.sources, 'Sources')
+        // Check status
+        if (data.status == 'error') {
+            console.log(data.message);
         }
-        else {
-            // Filter out sources by category
-            let sources = data.sources.filter(source => {
-                if (categoryFilters.includes(source.category)) {
-                    return source;
-                }
-            })
-            // Create sources list
-            sourcesDiv.innerHTML = create_sources_lg(sources, 'Sources')
+
+        if (data.status == 'ok') {
+            console.log(data);
+
+            // Check if filters selected or not
+            if (categoryFilters.length == 0) {
+                // Create sources list
+                sourcesDiv.innerHTML = create_sources_lg(data.sources, 'Sources')
+            }
+            else {
+                // Filter out sources by category
+                let sources = data.sources.filter(source => {
+                    if (categoryFilters.includes(source.category)) {
+                        return source;
+                    }
+                })
+                // Create sources list
+                sourcesDiv.innerHTML = create_sources_lg(sources, 'Sources')
+            }
         }
 
         // Enable search input
         document.querySelector('#sources-search').disabled = false;
-
     })
     .catch(err => {
         console.log(err);
@@ -198,32 +204,40 @@ function load_discover_tab() {
     fetch('discover/')
     .then(res => {
 
-         // Check status
+         // Check response status
          if (res.status == 200) {
             return res.json().then(data => {
-                console.log(data)
 
-                // Remove nulls
-                const articles = data.articles.filter(article => {
-                    if (article.title && article.description && article.url && article.title != '[Removed]') {
-                        return article
-                    }
-                })
-
-                // Populate data
-                if (!data.sources) {
-                    subscriptionsDiv.innerHTML = '<h2 class="h-100 text-center my-5">No subscriptions yet</h2>'
-                    subscriptionsNewsDiv.innerHTML = '';
+                // Check status
+                if (data.status == 'error') {
+                    console.log(data.message);
                 }
-                else {
-                    subscriptionsDiv.innerHTML = create_sources_accordion(data.sources, 'Subscriptions');
-                    subscriptionsNewsDiv.innerHTML = create_articles(articles, 'From your subcriptions')
+
+                if (data.status == 'ok') {
+                    console.log(data)
+
+                    // Remove nulls
+                    const articles = data.articles.filter(article => {
+                        if (article.title && article.description && article.url && article.title != '[Removed]') {
+                            return article
+                        }
+                    })
+
+                    // Populate data
+                    if (!data.sources) {
+                        subscriptionsDiv.innerHTML = '<h2 class="h-100 text-center my-5">No subscriptions yet</h2>'
+                        subscriptionsNewsDiv.innerHTML = '';
+                    }
+                    else {
+                        subscriptionsDiv.innerHTML = create_sources_accordion(data.sources, 'Subscriptions');
+                        subscriptionsNewsDiv.innerHTML = create_articles(articles, 'From your subcriptions')
+                    }
                 }
             })
         }
         else if (res.status == 403) {
             return res.json().then(data => {
-                console.log(data);
+                console.log(data.message);
 
                 // Redirect to accounts
                 subscriptionsDiv.innerHTML = '<h2 class="h-100 text-center my-5">Please <a href="/accounts" class="heading-link">login</a> first.</h2>'

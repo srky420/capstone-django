@@ -24,11 +24,12 @@ class HeadlinesView(View):
                         
         # Get top sources and add to response
         sources = get_top_sources(category)
+        
         if response["status"] == "ok" and sources["status"] == "ok":
             response["sources"] = sources["sources"]
                 
         # Get user's subscriptions if user is authenticated
-        if request.user.is_authenticated:
+        if request.user.is_authenticated and response["status"] == "ok":
             
             # Get all subscriptions of current user
             subscribed_sources = request.user.subscriptions.all()
@@ -98,7 +99,7 @@ class SubscribeView(View):
             sub = Subscription.objects.get(source_id=source["id"], user=request.user)
             sub.delete()
             
-            return JsonResponse({"msg": "Subscription removed.", "subscribed": False}, status=201)
+            return JsonResponse({"messsage": "Subscription removed.", "subscribed": False}, status=201)
         except Subscription.DoesNotExist:
             sub = Subscription.objects.create(
                 source_id=source["id"], 
@@ -110,7 +111,7 @@ class SubscribeView(View):
                 )
             sub.save()
             
-            return JsonResponse({"msg": "Subscription created.", "subscribed": True}, status=201)     
+            return JsonResponse({"messsage": "Subscription created.", "subscribed": True}, status=201)     
         
        
 class DiscoverView(View):    
@@ -118,7 +119,7 @@ class DiscoverView(View):
         
         # Check if logged in
         if not request.user.is_authenticated:
-            return JsonResponse({"msg": "Not logged in."}, status=403)
+            return JsonResponse({"messsage": "Not logged in."}, status=403)
         
         # Get subscriptions list
         subscriptions = request.user.subscriptions.all()
@@ -128,7 +129,7 @@ class DiscoverView(View):
         response = get_news_from_sources([source["id"] for source in sources])
         
         # Append subscribed source to response
-        if len(sources) != 0:
+        if response["status"] == "ok":
             response["sources"] = sources
             # Set subscribed to True for each source
             for source in response["sources"]:
