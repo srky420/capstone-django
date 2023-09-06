@@ -11,6 +11,7 @@ A News Aggregator web app that consumes [News API](https://newsapi.org/) with Us
 
 - [Overview](#overview)
 - [Distinctiveness and Complexity](#distinctiveness-and-complexity)
+- [File Structure](#file-structure)
 - [Installation](#installation)
 
 ## Overview
@@ -42,8 +43,59 @@ Complexity of this project can be summarized in following points:
 - Creating unit tests for views and models.
 
 ## File Structure
-Todo
 
+### Project level
+
+```
+capstone
+│   settings.py - Defines project settings e.g. mail id, mail passwords, API key
+│   urls.py - Defines project level urls
+│   wsgi.py
+│   __init__.py
+└───__pycache__
+```
+
+### Accounts app
+
+	accounts
+	│   admin.py - Defines admin classes and functions
+	│   apps.py - Defines accounts app configuration
+	│   forms.py - Defines Django's auth forms and model forms
+	│   models.py - Defines models for accounts app i.e. User model
+	│   tests.py - Defines unit tests for accounts app
+	│   urls.py - Defines url paths for accounts app
+	│   utils.py - Defines functions for token generation and validation
+	│   views.py - Defines business logic for accounts app
+	│   __init__.py
+	│
+	├───migrations
+	│
+	├───static
+	│   └───accounts
+	│       │   change_view.js - Defines function to change views between login, sign up and forgot password
+	│       │   color-modes.js - Defines functions to switch between themes i.e. light and dark
+	│       │   placeholders.js - Defines placeholder html for loading purposes
+	│       │   styles.css - Defines CSS propertiers of elements
+	│       │   unsubscribe.js - Defines function to unsubscribe from sources when user is logged in.
+	│       │
+	│       └───favicon
+	├───templates - Contains all the templates for accounts app
+	│   └───accounts
+	│           color-modes.html
+	│           email.html
+	│           footer-lg.html
+	│           footer-sm.html
+	│           forgotpass-form.html
+	│           index.html
+	│           layout.html
+	│           login-form.html
+	│           messages.html
+	│           profile-pic.html
+	│           profile.html
+	│           register-form.html
+	│           resetpass-form.html
+	│
+	└───__pycache__
 
 ## Installation
 
@@ -106,3 +158,13 @@ Once you have done Installation and Setup you can run project:
 Be sure to activate virtual environment before running the server:
 
     .\venv\Scripts\activate
+
+
+
+<style>
+
+	.table-wrapper {
+			overflow-x: scroll; 
+	}
+
+</style>
