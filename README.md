@@ -1,6 +1,6 @@
 # News | CS50W: Capstone
 
-A News Aggregator web app that consumes [News API](https://newsapi.org/) with User Authentication, User Verification and Source Subscription features.
+A News Aggregator web app, written in Django, that consumes [News API](https://newsapi.org/) having User Authentication, User Verification, presenting News Articles and New Sources to Users as well as Source Subscription freatures.
 
 ![Static Badge](https://img.shields.io/badge/version-1.0-blue)
 ![Static Badge](https://img.shields.io/badge/python-3.8_|_3.9_|_3.10_|_3.11-darkgreen)
@@ -11,6 +11,8 @@ A News Aggregator web app that consumes [News API](https://newsapi.org/) with Us
 
 - [Overview](#overview)
 - [Distinctiveness and Complexity](#distinctiveness-and-complexity)
+	* [Distinctiveness](#distinctiveness)
+	* [Complexity](#complexity)
 - [File Structure](#file-structure)
 - [Installation](#installation)
 
