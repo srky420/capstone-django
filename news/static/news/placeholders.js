@@ -39,7 +39,7 @@ const placeholderArticle = `<div class="col-lg-6 col-md-12 py-3 placeholder-card
                                 </div>
                             </div>`;
 
-const placeholderArticleWide = `<div class="p-5 my-5 position-relative bg-body-tertiary" style="min-height: 400px">
+const placeholderArticleWide = `<div class="p-5 my-5 position-relative bg-body-tertiary article-wide">
                                     <div class="placeholder-glow">
                                         <span class="placeholder col-8"></span>
                                         <span class="placeholder col-4"></span>

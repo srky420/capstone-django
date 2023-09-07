@@ -1,3 +1,4 @@
+import os
 import json
 
 from django.shortcuts import render
@@ -215,6 +216,7 @@ class ChangeProfilePicView(LoginRequiredMixin, View):
         
         user = User.objects.get(pk=request.user.id)
         file = request.FILES["file"]
+        os.remove(user.profile_pic.path)
         user.profile_pic = file
         user.save()
         

@@ -49,6 +49,10 @@ h1, h2, h3, h4, h5, h6, a {
     overflow: hidden;
 }
 
+.article-wide {
+    min-height: 400px;
+}
+
 .side-articles {
     height: 400px;
 }
@@ -144,7 +148,7 @@ h1, h2, h3, h4, h5, h6, a {
     }
 
     h1, h2, h3, .heading-link {
-        font-size: 20px !important;
+        font-size: 22px !important;
     }
 
     p {
@@ -168,6 +172,10 @@ h1, h2, h3, h4, h5, h6, a {
 
     .article-img {
         width: 100%;
+    }
+
+    .article-wide {
+        min-height: 300px;
     }
 
     .carousel-img {

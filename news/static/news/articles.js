@@ -40,7 +40,7 @@ function create_articles(articles, heading) {
 // Create wide article
 function create_wide_article(article) {
     return (
-        `<div class="p-5 my-5 position-relative" style="min-height: 400px">
+        `<div class="p-5 my-5 position-relative article-wide">
             <img src="${article.urlToImage}"
                 alt="" class="position-absolute top-0 start-0 object-fit-cover w-100 h-100" style="z-index: -1000;" onError="this.onerror=null; this.src='../static/news/img/placeholder.jpg'">
             <div class="position-absolute w-100 h-100 bg-dark bg-opacity-50 top-0 start-0" style="z-index: -1000;"></div>
