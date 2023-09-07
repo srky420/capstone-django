@@ -18,7 +18,7 @@ function create_carousel(id, articles) {
                         alt="carousel-pic-1" class="carousel-img" onError="this.onerror=null; this.src='../static/news/img/placeholder.jpg';">
                     <div class="position-absolute w-100 h-100 bg-dark bg-opacity-50 bottom-0"></div>
                     <div class="container">
-                        <div class="carousel-caption text-start">
+                        <div class="carousel-caption text-start overflow-hidden">
                             <h1 class="text-light">${articles[i].title}</h1>
                             <p><a class="link-light link-underline link-underline-opacity-0 link-underline-opacity-100-hover h4" href="${articles[i].url}">Read more...</a></p>
                         </div>
