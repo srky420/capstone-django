@@ -24,9 +24,9 @@ This project, named News, provides a huge number of news articles from different
 
 This project utilizes an external API with the help of [News API's python package](https://github.com/mattlisiv/newsapi-python) to make API calls to fetch news articles and news sources. It also uses JavaScript to dynamically fetch data from beckend and displays it in real-time to the users. Hence why the index page is never reloaded and new content is displayed for the user in each tab of index page. It also shows placeholders while data is being loaded to show layout of the page to the user and make the overall experience user-friendly.
 
-Other than this, the project also provides a dynamic search option for both news articles and news sources since alot of times people want to search for specific news articles to read or specific sources to subscribe to. The search results are updated in real-time as the user searches for any keywords. Users can also filter sources by category to narrow down their search results. A sources tab allows users to browse, search, filter and subscribe/unsubscribe from news sources. Other than that a list of relevant news sources are shown in each tab of index page and registered users can subscribe/unsubscribe to these sources.
+Other than this, the project also provides a dynamic search option for both news articles and news sources since a lot of times people want to search for specific news articles to read or specific sources to subscribe to. The search results are updated in real-time as the user searches for any keywords. Users can also filter sources by category to narrow down their search results. A sources tab allows users to browse, search, filter and subscribe/unsubscribe from news sources. Other than that a list of relevant news sources are shown in each tab of index page and registered users can subscribe/unsubscribe to these sources.
 
-This project also uses email verification for newly registered users. Whenever a new user registers, an account verification email is sent to that user's email id. The sent email contains a link which user can click to verify their account. Account verification uses a timed-token which expires after 120 minutes. Similarly, a timed-token is also used for forgot password scenario where user receives a link in email and can use that link to reset their password. A seperate app is used for user accounts handling to seperate concerns of accounts and news app.
+This project also uses email verification for newly registered users. Whenever a new user registers, an account verification email is sent to that user's email id. The sent email contains a link which user can click to verify their account. Account verification uses a timed-token which expires after 120 minutes. Similarly, a timed-token is also used for forgot password scenario where user receives a link in email and can use that link to reset their password. A seperate app is used for user accounts handling to seperate concerns of user accounts and main app.
 
 Finally, this project provides a Discover page for registered users where they can see news articles from all the sources that they have subscribed to. Users can customize this news feed by subscribing to their favorite news sources and get all articles from those sources. It also shows a list of subscribed sources of current user which can be used to unsubscribe. News app and accounts app both are mobile-responsive and have user-friendly interfaces utilizing Bootstrap CSS and JS.
 
@@ -34,7 +34,7 @@ Finally, this project provides a Discover page for registered users where they c
 
 Complexity of this project can be summarized in following points:
 - Making external API calls and ensuring consistent response to backend for proper unit testing and to frontend for proper data display and error handling.
-- Designing appropriate suscription model for storing user subscriptions and retreiving subscriptions to make API calls for news articles.
+- Designing appropriate subscription model for storing user subscriptions and retreiving subscriptions to make API calls for news articles.
 - Designing user model and authentication forms using Django's auth forms.
 - Setting up Django mail system as well as creating user verification and password reset emails.
 - Ensuring timed-token generation and parsing for email verification requests and password reset requests.
@@ -49,19 +49,19 @@ Defines file structure and contents of relevant files/folders.
 ### Project directory
 
 	capstone
-		│   .env.example - Example of what .env file would like (.env must be created with variables defined in this file, see [Installation](#installation) for details)
+		│   .env.example - Example of what .env file would like (.env must be created with variables defined in this file)
 		│   .gitignore - Files to ignore when pushing to Github repo
 		│   db.sqlite3 - Database for project
 		│   manage.py - Essential classes and functions to configure and run project
 		│	README.md - Documentation for project
 		│	requirements.txt - Required packages or dependancies that must be installed
 		│
-		├───.github - YAML code to run when code is pushed to Github i.e. automatic unit testing when project is pushed to Github
+		├───.github - Github actions code that runs unit tests whenever code is pushed to repo
 		├───capstone - Project level directory
 		├───accounts - App that handles user related features
-		├───news - App that handles API calls
-		└───media
-			└───images
+		├───news - Main app that makes API calls, displays news articles, news sources and provides subscription capability to the user
+		└───media - Directory which holds media related to the project
+			└───images - Directory which holds user profile pictures
 
 ### Project level
 
@@ -80,7 +80,7 @@ Defines file structure and contents of relevant files/folders.
 	│   forms.py - Defines Django's auth forms and model forms
 	│   models.py - Defines models for accounts app i.e. User model
 	│   tests.py - Defines unit tests for accounts app
-	│   urls.py - Defines url paths for accounts app
+	│   urls.py - Defines url patterns for accounts app
 	│   utils.py - Defines functions for token generation and parsing as well as email dispatching
 	│   views.py - Defines business logic for accounts app i.e. requests and responses for login, sign up, logout, verification, forgot password, reset password and profile
 	│   __init__.py
@@ -96,6 +96,7 @@ Defines file structure and contents of relevant files/folders.
 	│       │   unsubscribe.js - Defines function to unsubscribe from sources when user is logged in
 	│       │
 	│       └───favicon
+	│
 	├───templates - Contains all the templates for accounts app
 	│   └───accounts
 	│           color-modes.html
@@ -135,8 +136,8 @@ Defines file structure and contents of relevant files/folders.
 	│       │   color-modes.js - Defines functions to switch between themes (i.e. light and dark) for news app
 	│       │   filters.js - Defines function to filter out sources by manipulating DOM
 	│       │   main.js - Defines DOM loaded event which calls other necessary functions on page load/reload
-	│       │   placeholders.js - Defines functions and globar variables for creating placeholders to show loading
-	│       │   search.js - Defines DOM loaded event for search page which is a different page from index
+	│       │   placeholders.js - Defines functions and global variables for creating placeholders to show loading
+	│       │   search.js - Defines DOM loaded event for search page which is a seperate page from index
 	│       │   sources.js - Defines global variables and functions for creating HTML for news sources by manipulating DOM
 	│       │   styles.css - Defines CSS properties for HTML elements
 	│       │   subscribe.js - Defines functions for fetch requests to backend for checking user authentication and to toggle subscription for specified source
@@ -144,7 +145,7 @@ Defines file structure and contents of relevant files/folders.
 	│       │
 	│       ├───favicon
 	│       └───img - Directory for static images
-	│               placeholder.jpg - An alternate image if there is an error loading an article image
+	│       		placeholder.jpg - An alternate image if there is an error loading an article image
 	│
 	├───templates - Contains all templates for news app
 	│   └───news
