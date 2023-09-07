@@ -37,23 +37,40 @@ Complexity of this project can be summarized in following points:
 - Designing appropriate suscription model for storing user subscriptions and retreiving subscriptions to make API calls for news articles.
 - Designing user model and authentication forms using Django's auth forms.
 - Setting up Django mail system as well as creating user verification and password reset emails.
-- Ensuring timed-token generation and validation for email verification requests and password reset requests.
+- Ensuring timed-token generation and parsing for email verification requests and password reset requests.
 - Designing frontend for news app and accounts app using Bootstrap CSS and ensuring mobile responsiveness.
 - Creating fetch requests for news articles and news sources with proper error handling.
 - Creating unit tests for views and models.
 
 ## File Structure
 
+Defines file structure and contents of relevant files/folders.
+
+### Project directory
+
+	capstone
+		│   .env.example - Example of what .env file would like (.env must be created with variables defined in this file, see [Installation](#installation) for details)
+		│   .gitignore - Files to ignore when pushing to Github repo
+		│   db.sqlite3 - Database for project
+		│   manage.py - Essential classes and functions to configure and run project
+		│	README.md - Documentation for project
+		│	requirements.txt - Required packages or dependancies that must be installed
+		│
+		├───.github - YAML code to run when code is pushed to Github i.e. automatic unit testing when project is pushed to Github
+		├───capstone - Project level directory
+		├───accounts - App that handles user related features
+		├───news - App that handles API calls
+		└───media
+			└───images
+
 ### Project level
 
-```
-capstone
-│   settings.py - Defines project settings e.g. mail id, mail passwords, API key
-│   urls.py - Defines project level urls
-│   wsgi.py
-│   __init__.py
-└───__pycache__
-```
+	capstone
+	│   settings.py - Defines project settings e.g. mail id, mail passwords, API key, etc.
+	│   urls.py - Defines project level urls
+	│   wsgi.py
+	│   __init__.py
+	└───__pycache__
 
 ### Accounts app
 
@@ -64,19 +81,19 @@ capstone
 	│   models.py - Defines models for accounts app i.e. User model
 	│   tests.py - Defines unit tests for accounts app
 	│   urls.py - Defines url paths for accounts app
-	│   utils.py - Defines functions for token generation and validation
-	│   views.py - Defines business logic for accounts app
+	│   utils.py - Defines functions for token generation and parsing as well as email dispatching
+	│   views.py - Defines business logic for accounts app i.e. requests and responses for login, sign up, logout, verification, forgot password, reset password and profile
 	│   __init__.py
 	│
 	├───migrations
 	│
-	├───static
+	├───static - Static file directory for accounts app
 	│   └───accounts
 	│       │   change_view.js - Defines function to change views between login, sign up and forgot password
-	│       │   color-modes.js - Defines functions to switch between themes i.e. light and dark
-	│       │   placeholders.js - Defines placeholder html for loading purposes
+	│       │   color-modes.js - Defines functions to switch between themes (i.e. light and dark) for accounts app
+	│       │   placeholders.js - Defines placeholder HTML to show loading
 	│       │   styles.css - Defines CSS propertiers of elements
-	│       │   unsubscribe.js - Defines function to unsubscribe from sources when user is logged in.
+	│       │   unsubscribe.js - Defines function to unsubscribe from sources when user is logged in
 	│       │
 	│       └───favicon
 	├───templates - Contains all the templates for accounts app
@@ -94,6 +111,57 @@ capstone
 	│           profile.html
 	│           register-form.html
 	│           resetpass-form.html
+	│
+	└───__pycache__
+
+### News app
+
+	news
+	│   admin.py - Defines admin classes and functions
+	│   apps.py - Defines news app configuration
+	│   models.py - Defines subscripiton model for news app
+	│   tests.py - Defines unit tests for news app
+	│   urls.py - Defines url patterns for news app
+	│   utils.py - Defines functions for API calls to News API
+	│   views.py - Defines business logic for news app i.e. requests and responses against different urls, rendering templates, checking for proper request methods and returning appropriate JSON responses for JavaScript to handle.
+	│   __init__.py
+	│
+	├───migrations
+	│
+	├───static - Static files directory for news app
+	│   └───news
+	│       │   articles.js - Defines global variables and functions for creating news articles HTML by manipulating DOM
+	│       │   carousel.js - Defines function to create Bootstrap carousel and manipulate DOM
+	│       │   color-modes.js - Defines functions to switch between themes (i.e. light and dark) for news app
+	│       │   filters.js - Defines function to filter out sources by manipulating DOM
+	│       │   main.js - Defines DOM loaded event which calls other necessary functions on page load/reload
+	│       │   placeholders.js - Defines functions and globar variables for creating placeholders to show loading
+	│       │   search.js - Defines DOM loaded event for search page which is a different page from index
+	│       │   sources.js - Defines global variables and functions for creating HTML for news sources by manipulating DOM
+	│       │   styles.css - Defines CSS properties for HTML elements
+	│       │   subscribe.js - Defines functions for fetch requests to backend for checking user authentication and to toggle subscription for specified source
+	│       │   tabs.js - Defines functions to fetch news articles and sources from backend and create HTML elements to display content
+	│       │
+	│       ├───favicon
+	│       └───img - Directory for static images
+	│               placeholder.jpg - An alternate image if there is an error loading an article image
+	│
+	├───templates - Contains all templates for news app
+	│   └───news
+	│           about.html
+	│           carousel.html
+	│           color-modes.html
+	│           discover.html
+	│           faqs.html
+	│           footer.html
+	│           index.html
+	│           layout.html
+	│           navbar-primary.html
+	│           navbar-secondary.html
+	│           privacy-policy.html
+	│           search.html
+	│           sources.html
+	│           tab-content.html
 	│
 	└───__pycache__
 
@@ -158,13 +226,3 @@ Once you have done Installation and Setup you can run project:
 Be sure to activate virtual environment before running the server:
 
     .\venv\Scripts\activate
-
-
-
-<style>
-
-	.table-wrapper {
-			overflow-x: scroll; 
-	}
-
-</style>
