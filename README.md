@@ -35,9 +35,9 @@ This project utilizes an external API with the help of [News API's python packag
 
 Other than this, the project also provides a dynamic search option for both news articles and news sources since a lot of times people want to search for specific news articles to read or specific sources to subscribe to. The search results are updated in real-time as the user searches for any keywords. Users can also filter sources by category to narrow down their search results. A sources tab allows users to browse, search, filter and subscribe/unsubscribe from news sources. Other than that a list of relevant news sources are shown in each tab of index page and registered users can subscribe/unsubscribe to these sources.
 
-This project also uses email verification for newly registered users. Whenever a new user registers, an account verification email is sent to that user's email id. The sent email contains a link which user can click to verify their account. Account verification uses a timed-token which expires after 120 minutes. Similarly, a timed-token is also used for forgot password scenario where user receives a link in email and can use that link to reset their password. A seperate app is used for user accounts handling to seperate concerns of user accounts and main app.
+This project also uses email verification for newly registered users. Whenever a new user registers, an account verification email is sent to that user's email id. The sent email contains a link which user can click to verify their account. Account verification uses a timed-token which expires after 120 minutes. Similarly, a timed-token is also used for forgot password scenario where user receives a link in email and can use that link to reset their password. A seperate app is used for handling user accounts to seperate concerns of user accounts and main app.
 
-Finally, this project provides a Discover page for registered users where they can see news articles from all the sources that they have subscribed to. Users can customize this news feed by subscribing to their favorite news sources and get all articles from those sources. It also shows a list of subscribed sources of current user which can be used to unsubscribe. News app and accounts app both are mobile-responsive and have user-friendly interfaces utilizing Bootstrap CSS and JS.
+Finally, this project provides a Discover page for registered users where they can see news articles from all the sources that they have subscribed to. Users can customize this news feed by subscribing to their favorite news sources and get all articles from those sources. It also shows a list of subscribed sources of current user and an unsubscribe button with each source. News app and accounts app both are mobile-responsive and have user-friendly interfaces utilizing Bootstrap CSS and JS.
 
 ### Complexity
 
@@ -49,7 +49,8 @@ Complexity of this project can be summarized in following points:
 - Ensuring timed-token generation and parsing for email verification requests and password reset requests.
 - Designing frontend for news app and accounts app using Bootstrap CSS and ensuring mobile responsiveness.
 - Creating fetch requests for news articles and news sources with proper error handling.
-- Creating unit tests for views and models.
+- Creating appropriate HTML content for articles and sources with DOM manipulation.
+- Creating unit tests for views and models for both accounts app and news app.
 
 ## File Structure
 
@@ -133,7 +134,7 @@ Defines file structure and contents of relevant files/folders.
 	│   tests.py - Defines unit tests for news app
 	│   urls.py - Defines url patterns for news app
 	│   utils.py - Defines functions for API calls to News API
-	│   views.py - Defines business logic for news app i.e. requests and responses against different urls, rendering templates, checking for proper request methods and returning appropriate JSON responses for JavaScript to handle.
+	│   views.py - Defines business logic for news app i.e. requests and responses against different urls, rendering templates, checking for proper request methods and returning appropriate JSON responses for JavaScript to handle
 	│   __init__.py
 	│
 	├───migrations
@@ -240,7 +241,9 @@ Be sure to activate virtual environment before running the server:
 
 ## Support
 
-For any queries or questions:
+Thank you for going through this extensive documentation. I hope it helps! Please provide me with feedback for any changes or improvements.
+
+For any questions or feedback:
 
 [LinkedIn](https://www.linkedin.com/in/shahrukh-khan-2b8968242/)
 
