@@ -40,7 +40,7 @@ function load_world_headlines(category, tab_id) {
 
         // Check status
         if (data.status == "error") {
-            console.log(data.message);
+            console.log(data);
         }
         if (data.status == "ok") {
             console.log(data);
@@ -95,7 +95,7 @@ function load_category_headlines(category, tab_id) {
         
         // Check status
         if (data.status == 'error') {
-            console.log(data.message);
+            console.log(data);
         }
         if (data.status == 'ok') {
             console.log(data);
@@ -158,7 +158,7 @@ function load_sources() {
 
         // Check status
         if (data.status == 'error') {
-            console.log(data.message);
+            console.log(data);
         }
 
         if (data.status == 'ok') {
@@ -210,7 +210,7 @@ function load_discover_tab() {
 
                 // Check status
                 if (data.status == 'error') {
-                    console.log(data.message);
+                    console.log(data);
                 }
 
                 if (data.status == 'ok') {
@@ -237,7 +237,7 @@ function load_discover_tab() {
         }
         else if (res.status == 403) {
             return res.json().then(data => {
-                console.log(data.message);
+                console.log(data);
 
                 // Redirect to accounts
                 subscriptionsDiv.innerHTML = '<h2 class="h-100 text-center my-5">Please <a href="/accounts" class="heading-link">login</a> first.</h2>'

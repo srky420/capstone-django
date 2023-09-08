@@ -17,12 +17,12 @@ def get_top_headlines(category):
         try:
             return api.get_top_headlines(page_size=100, page=1, language="en")
         except NewsAPIException as e:
-            return e
+            return vars(e)["exception"]
         
     try:
         return api.get_top_headlines(page_size=100, page=1, category=category, language="en")
     except NewsAPIException as e:
-        return e
+        return vars(e)["exception"]
     
 
 def get_top_sources(category):
@@ -36,12 +36,12 @@ def get_top_sources(category):
         try:
             return api.get_sources(language="en")
         except NewsAPIException as e:
-            return e
+            return vars(e)["exception"]
         
     try:
         return api.get_sources(category=category, language="en")
     except NewsAPIException as e:
-        return e
+        return vars(e)["exception"]
     
     
 def get_all_sources():
@@ -54,7 +54,7 @@ def get_all_sources():
     try:
         return api.get_sources()
     except NewsAPIException as e:
-        return e
+        return vars(e)["exception"]
     
     
 def get_everything(q):
@@ -67,7 +67,7 @@ def get_everything(q):
     try:
         return api.get_everything(q=q, language="en")
     except NewsAPIException as e:
-        return e
+        return vars(e)["exception"]
     
     
 def get_news_from_sources(sources_list):
@@ -85,4 +85,4 @@ def get_news_from_sources(sources_list):
     try:
         return api.get_top_headlines(sources=sources, page_size=100, page=1)
     except NewsAPIException as e:
-        return e
+        return vars(e)["exception"]

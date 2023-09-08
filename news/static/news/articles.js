@@ -45,7 +45,7 @@ function create_wide_article(article) {
                 alt="" class="position-absolute top-0 start-0 object-fit-cover w-100 h-100" style="z-index: -1000;" onError="this.onerror=null; this.src='../static/news/img/placeholder.jpg'">
             <div class="position-absolute w-100 h-100 bg-dark bg-opacity-50 top-0 start-0" style="z-index: -1000;"></div>
             <div class="text-light z-3">
-                <h1 class="">${article.title}</h1>
+                <h1>${article.title}</h1>
                 <p class="my-3">${article.description}</p>
                 <a href="${article.url}" class="link-light link-underline link-underline-opacity-0 link-underline-opacity-100-hover">Continue reading...</a>
             </div>
