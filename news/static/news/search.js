@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Remove nulls
                 const articles = data.articles.filter(article => {
-                    if (article.title && article.description && article.url) {
+                    if (article.title && article.description && article.url && article.title != '[Removed]') {
                         return article
                     }
                 })
