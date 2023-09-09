@@ -1,6 +1,6 @@
 # News | CS50W: Capstone
 
-A News Aggregator web app, written in Django, that consumes [News API](https://newsapi.org/) having User Authentication, User Verification, presenting News Articles and New Sources to Users as well as Source Subscription freatures.
+A News Aggregator web app, written in Django, that consumes [News API](https://newsapi.org/) having User Authentication, User Verification, presenting News Articles and New Sources to Users as well as Source Subscription features.
 
 ![Static Badge](https://img.shields.io/badge/version-1.0-blue)
 ![Static Badge](https://img.shields.io/badge/python-3.8_|_3.9_|_3.10_|_3.11-darkgreen)
@@ -31,19 +31,19 @@ This project, named News, provides a huge number of news articles from different
 
 ### Distinctiveness:
 
-This project utilizes an external API with the help of [News API's python package](https://github.com/mattlisiv/newsapi-python) to make API calls to fetch news articles and news sources. It also uses JavaScript to dynamically fetch data from beckend and displays it in real-time to the users. Hence why the index page is never reloaded and new content is displayed for the user in each tab of index page. It also shows placeholders while data is being loaded to show layout of the page to the user and make the overall experience user-friendly.
+This project utilizes an external API with the help of [News API's python package](https://github.com/mattlisiv/newsapi-python) to make API calls to fetch news articles and news sources. It also uses JavaScript to dynamically fetch data from backend and displays it in real-time to the users. Hence why the index page is never reloaded and new content is displayed for the user in each tab of index page. It also shows placeholders while data is being loaded to show layout of the page to the user and make the overall experience user-friendly.
 
-Other than this, the project also provides a dynamic search option for both news articles and news sources since a lot of times people want to search for specific news articles to read or specific sources to subscribe to. The search results are updated in real-time as the user searches for any keywords. Users can also filter sources by category to narrow down their search results. A sources tab allows users to browse, search, filter and subscribe/unsubscribe from news sources. Other than that a list of relevant news sources are shown in each tab of index page and registered users can subscribe/unsubscribe to these sources.
+Other than this, the project also provides a dynamic search option for both news articles and news sources since a lot of times people want to search for specific news articles to read or specific sources to subscribe to. The search results are updated in real-time as the user searches for any keywords. Users can also filter sources by category to narrow down their search results. A sources tab allows users to browse, search, filter and subscribe/unsubscribe from news sources. Other than that, a list of relevant news sources is shown in each tab of index page and registered users can subscribe/unsubscribe to these sources.
 
-This project also uses email verification for newly registered users. Whenever a new user registers, an account verification email is sent to that user's email id. The sent email contains a link which user can click to verify their account. Account verification uses a timed-token which expires after 120 minutes. Similarly, a timed-token is also used for forgot password scenario where user receives a link in email and can use that link to reset their password. A seperate app is used for handling user accounts to seperate concerns of user accounts and main app.
+This project also uses email verification for newly registered users. Whenever a new user registers, an account verification email is sent to that user's email id. The sent email contains a link which user can click to verify their account. Account verification uses a timed-token which expires after 120 minutes. Similarly, a timed-token is also used for forgot password scenario where user receives a link in email and can use that link to reset their password. A separate app is used for handling user accounts to separate concerns of user accounts and main app.
 
-Finally, this project provides a Discover page for registered users where they can see news articles from all the sources that they have subscribed to. Users can customize this news feed by subscribing to their favorite news sources and get all articles from those sources. It also shows a list of subscribed sources of current user and an unsubscribe button with each source. News app and accounts app both are mobile-responsive and have user-friendly interfaces utilizing Bootstrap CSS and JS.
+Finally, this project provides a Discover page for registered users where they can see news articles from all the sources that they have subscribed to. Users can customize this news feed by subscribing to their favourite news sources and get all articles from those sources. It also shows a list of subscribed sources of current user and an unsubscribe button with each source. News app and accounts app both are mobile-responsive and have user-friendly interfaces utilizing Bootstrap CSS and JS.
 
 ### Complexity
 
 Complexity of this project can be summarized in following points:
 - Making external API calls and ensuring consistent response to backend for proper unit testing and to frontend for proper data display and error handling.
-- Designing appropriate subscription model for storing user subscriptions and retreiving subscriptions to make API calls for news articles.
+- Designing appropriate subscription model for storing user subscriptions and retrieving subscriptions to make API calls for news articles.
 - Designing user model and authentication forms using Django's auth forms.
 - Setting up Django mail system as well as creating user verification and password reset emails.
 - Ensuring timed-token generation and parsing for email verification requests and password reset requests.
@@ -64,7 +64,7 @@ Defines file structure and contents of relevant files/folders.
 		│   db.sqlite3 - Database for project
 		│   manage.py - Essential classes and functions to configure and run project
 		│	README.md - Documentation for project
-		│	requirements.txt - Required packages or dependancies that must be installed
+		│	requirements.txt - Required packages or dependencies that must be installed
 		│
 		├───.github - Github actions code that runs unit tests whenever code is pushed to repo
 		├───capstone - Project level directory
@@ -76,7 +76,7 @@ Defines file structure and contents of relevant files/folders.
 ### Project level
 
 	capstone
-	│   settings.py - Defines project settings e.g. mail id, mail passwords, API key, etc.
+	│   settings.py - Defines project settings e.g., mail id, mail passwords, API key, etc.
 	│   urls.py - Defines project level urls
 	│   wsgi.py
 	│   __init__.py
@@ -88,11 +88,11 @@ Defines file structure and contents of relevant files/folders.
 	│   admin.py - Defines admin classes and functions
 	│   apps.py - Defines accounts app configuration
 	│   forms.py - Defines Django's auth forms and model forms
-	│   models.py - Defines models for accounts app i.e. User model
+	│   models.py - Defines models for accounts app i.e., User model
 	│   tests.py - Defines unit tests for accounts app
-	│   urls.py - Defines url patterns for accounts app
+	│   urls.py - Defines URL patterns for accounts app
 	│   utils.py - Defines functions for token generation and parsing as well as email dispatching
-	│   views.py - Defines business logic for accounts app i.e. requests and responses for login, sign up, logout, verification, forgot password, reset password and profile
+	│   views.py - Defines business logic for accounts app i.e., requests and responses for login, sign up, logout, verification, forgot password, reset password and profile
 	│   __init__.py
 	│
 	├───migrations
@@ -100,9 +100,9 @@ Defines file structure and contents of relevant files/folders.
 	├───static - Static file directory for accounts app
 	│   └───accounts
 	│       │   change_view.js - Defines function to change views between login, sign up and forgot password
-	│       │   color-modes.js - Defines functions to switch between themes (i.e. light and dark) for accounts app
+	│       │   color-modes.js - Defines functions to switch between themes (i.e., light and dark) for accounts app
 	│       │   placeholders.js - Defines placeholder HTML to show loading
-	│       │   styles.css - Defines CSS propertiers of elements
+	│       │   styles.css - Defines CSS properties of elements
 	│       │   unsubscribe.js - Defines function to unsubscribe from sources when user is logged in
 	│       │
 	│       └───favicon
@@ -130,11 +130,11 @@ Defines file structure and contents of relevant files/folders.
 	news
 	│   admin.py - Defines admin classes and functions
 	│   apps.py - Defines news app configuration
-	│   models.py - Defines subscripiton model for news app
+	│   models.py - Defines subscription model for news app
 	│   tests.py - Defines unit tests for news app
-	│   urls.py - Defines url patterns for news app
+	│   urls.py - Defines URL patterns for news app
 	│   utils.py - Defines functions for API calls to News API
-	│   views.py - Defines business logic for news app i.e. requests and responses against different urls, rendering templates, checking for proper request methods and returning appropriate JSON responses for JavaScript to handle
+	│   views.py - Defines business logic for news app i.e., requests and responses against different URLs, rendering templates, checking for proper request methods and returning appropriate JSON responses for JavaScript to handle
 	│   __init__.py
 	│
 	├───migrations
@@ -143,11 +143,11 @@ Defines file structure and contents of relevant files/folders.
 	│   └───news
 	│       │   articles.js - Defines global variables and functions for creating news articles HTML by manipulating DOM
 	│       │   carousel.js - Defines function to create Bootstrap carousel and manipulate DOM
-	│       │   color-modes.js - Defines functions to switch between themes (i.e. light and dark) for news app
+	│       │   color-modes.js - Defines functions to switch between themes (i.e., light and dark) for news app
 	│       │   filters.js - Defines function to filter out sources by manipulating DOM
 	│       │   main.js - Defines DOM loaded event which calls other necessary functions on page load/reload
 	│       │   placeholders.js - Defines functions and global variables for creating placeholders to show loading
-	│       │   search.js - Defines DOM loaded event for search page which is a seperate page from index
+	│       │   search.js - Defines DOM loaded event for search page which is a separate page from index
 	│       │   sources.js - Defines global variables and functions for creating HTML for news sources by manipulating DOM
 	│       │   styles.css - Defines CSS properties for HTML elements
 	│       │   subscribe.js - Defines functions for fetch requests to backend for checking user authentication and to toggle subscription for specified source
@@ -198,13 +198,13 @@ Defines file structure and contents of relevant files/folders.
         
         cd capstone
 
-4. Create virtual environment inside projects's directory and activate it:
+4. Create virtual environment inside project's directory and activate it:
 
         python -m venv venv
 
         .\venv\Scripts\activate
 
-5. Install dependancies:
+5. Install dependencies:
 
         pip install -r .\requirements.txt
 
