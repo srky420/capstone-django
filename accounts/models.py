@@ -6,3 +6,4 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     email = models.EmailField(unique=True)
     profile_pic = models.ImageField(upload_to="images/", default="images/default-profile-pic.jpg")
+    is_default_profile_pic = models.BooleanField(default=True)

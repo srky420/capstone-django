@@ -159,3 +159,6 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PW')
 
 DEFAULT_FROM_EMAIL = 'no_reply<noreply@news.com>'
 
+# Site url
+SITE_URL = 'http://127.0.0.1:8000'
+

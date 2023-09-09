@@ -83,7 +83,7 @@ class RegisterView(View):
                 subject="News account verification",
                 message="Please use the link to active your account",
                 recipient_list=[email],
-                email_for="verification"
+                email_for="verification",
             )
             messages.add_message(request, messages.SUCCESS, "Account activation email sent.")
             return HttpResponseRedirect(reverse("accounts:index"))
@@ -183,6 +183,7 @@ class ResetPasswordView(View):
 class ProfileView(LoginRequiredMixin, View):
     login_url = "/accounts/"
     
+    # GET
     def get(self, request, *args, **kwargs):
         
         # Get subscripitons
@@ -193,6 +194,7 @@ class ProfileView(LoginRequiredMixin, View):
             "form": ChangePasswordForm(user=request.user),
         })
         
+    # POST
     def post(self, request, *args, **kwargs):
         form = ChangePasswordForm(request.user, request.POST)
         if form.is_valid():
@@ -214,9 +216,17 @@ class ChangeProfilePicView(LoginRequiredMixin, View):
         if not request.FILES.get("file"):
             return HttpResponseRedirect(reverse("accounts:profile"))
         
+        # Get user and file
         user = User.objects.get(pk=request.user.id)
         file = request.FILES["file"]
-        os.remove(user.profile_pic.path)
+        
+        # Check if default profile pic is true
+        if not user.is_default_profile_pic:
+            if os.path.exists(user.profile_pic.path):
+                os.remove(user.profile_pic.path)
+        else:
+            user.is_default_profile_pic = False
+
         user.profile_pic = file
         user.save()
         

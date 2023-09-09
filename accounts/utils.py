@@ -33,6 +33,7 @@ def send_email(token, subject, message, recipient_list, email_for):
         "subject": subject,
         "message": message,
         "token": token,
-        "email_for": email_for
+        "email_for": email_for,
+        "site_url": settings.SITE_URL
     })
     send_mail(subject, rendered_msg, html_message=rendered_msg, from_email=settings.DEFAULT_FROM_EMAIL, recipient_list=recipient_list)
