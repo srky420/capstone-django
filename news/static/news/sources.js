@@ -62,7 +62,7 @@ function create_sources_accordion(sources, heading) {
                             </button>
                         </h1>
                         <div id="collapse" class="accordion-collapse collapse" data-bs-parent="#subs-accordion">
-                            <div class="accordion-body overflow-auto" style="height: 400px">
+                            <div class="accordion-body overflow-auto" style="max-height: 400px">
                                 <div class="row">`
 
     // Create source columns

@@ -224,14 +224,13 @@ function load_discover_tab() {
                     })
 
                     // Populate data
-                    if (!data.sources) {
-                        subscriptionsDiv.innerHTML = '<h2 class="h-100 text-center my-5">No subscriptions yet</h2>'
-                        subscriptionsNewsDiv.innerHTML = '';
-                    }
-                    else {
-                        subscriptionsDiv.innerHTML = create_sources_accordion(data.sources, 'Subscriptions');
-                        subscriptionsNewsDiv.innerHTML = create_articles(articles, 'From your subcriptions')
-                    }
+                    subscriptionsDiv.innerHTML = create_sources_accordion(data.sources, 'Subscriptions');
+                    subscriptionsNewsDiv.innerHTML = create_articles(articles, 'From your subcriptions')
+                }
+
+                if (data.status == 'nosubs') {
+                    subscriptionsDiv.innerHTML = '<h2 class="h-100 text-center my-5">No subscriptions yet</h2>'
+                    subscriptionsNewsDiv.innerHTML = '';
                 }
             })
         }

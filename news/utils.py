@@ -78,7 +78,7 @@ def get_news_from_sources(sources_list):
         return {"status": "error", "message": "API Key missing."}
     
     if len(sources_list) == 0:
-        return {"status": "error", "message": "No subscriptions found."}
+        return {'status': 'nosubs', "message": "No subscriptions found."}
     
     sources = ",".join(sources_list)
     
