@@ -7,6 +7,8 @@ A News Aggregator web app, written in Django, that consumes [News API](https://n
 ![Static Badge](https://img.shields.io/badge/django-4.2-darkgreen)
 ![Static Badge](https://img.shields.io/badge/cs50w-capstone-darkred)
 
+### [Website Link](https://srky420.pythonanywhere.com/news/)
+
 ## Quick Links
 
 - [Overview](#overview)
