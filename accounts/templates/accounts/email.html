@@ -2,11 +2,11 @@
 <p style="text-align: center; margin: 1rem 0;">{{ message }}</p>
 
 {% if email_for == "verification" %}
-    <form action="{{ site_url }}{% url 'accounts:verify' token %}" method="get" style="text-align: center; margin: 1rem 0;">
+    <form action="{{ site_url }}{% url 'accounts:verify' token %}" target="_blank" method="get" style="text-align: center; margin: 1rem 0;">
         <button type="submit" style="padding: 10px; background-color: black; color: white; border: none;">Verify Account</button>
     </form>
 {% elif email_for == "resetpassword" %}
-    <form action="{{ site_url }}{% url 'accounts:reset-pass' token %}" method="get" style="text-align: center; margin: 1rem 0;">
+    <form action="{{ site_url }}{% url 'accounts:reset-pass' token %}" target="_blank" method="get" style="text-align: center; margin: 1rem 0;">
         <button type="submit" style="padding: 10px; background-color: black; color: white; border: none;">Reset Password</button>
     </form>
 {% endif %}

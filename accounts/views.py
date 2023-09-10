@@ -11,7 +11,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from news.models import Subscription
 from .models import User
-from .forms import RegisterationForm, LoginForm, FindAccountForm, ResetPasswordForm, ChangePasswordForm
+from .forms import RegisterationForm, LoginForm, FindAccountForm, ResetPasswordForm, ChangePasswordForm, VerificationForm
 from .utils import generate_email_token, send_email, parse_email_token
 
 
@@ -25,6 +25,7 @@ class IndexView(View):
             "login_form": LoginForm(),
             "register_form": RegisterationForm(),
             "forgot_form": FindAccountForm(),
+            "verification_form": VerificationForm(),
             "view": "login"
         })
     
@@ -47,12 +48,13 @@ class LoginView(View):
             if user:
                 login(request, user)
                 return HttpResponseRedirect(reverse("news:index"))
-            
+
         # Invalid form
         return render(request, "accounts/index.html", {
             "login_form": form,
             "register_form": RegisterationForm(),
             "forgot_form": FindAccountForm(),
+            "verification_form": VerificationForm(),
             "view": "login"
         })
 
@@ -92,6 +94,7 @@ class RegisterView(View):
             "register_form": form,
             "login_form": LoginForm(),
             "forgot_form": FindAccountForm(),
+            "verification_form": VerificationForm(),
             "view": "register",
         })
 
@@ -103,6 +106,8 @@ class AccountVerificationView(View):
         try:
             email = parse_email_token(token, 7200)
             user = User.objects.get(email=email)
+            
+            # Already activated
             if user.is_active == True:
                 messages.add_message(request, messages.ERROR, "Already activated.")
                 return HttpResponseRedirect(reverse("accounts:index"))
@@ -112,7 +117,7 @@ class AccountVerificationView(View):
             messages.add_message(request, messages.SUCCESS, "Account activated.")
             return HttpResponseRedirect(reverse("accounts:index"))
         except Exception as e:
-            print(e)
+            
             messages.add_message(request, messages.ERROR, "Token expired or invalid.")
             return HttpResponseRedirect(reverse("accounts:index"))
         
@@ -137,6 +142,7 @@ class ForgotPasswordView(View):
             "login_form": LoginForm(),
             "register_form": RegisterationForm(),
             "forgot_form": form,
+            "verification_form": VerificationForm(),
             "view": "forgot-pass"
         })
         
@@ -179,6 +185,33 @@ class ResetPasswordView(View):
             "token": token
         })
         
+
+class ResendVerificationView(View):
+    def post(self, request, *args, **kwargs):   
+        form = VerificationForm(request.POST)
+        if form.is_valid():
+            # Resend verification email
+            email = form.cleaned_data["email"]
+            token = generate_email_token(email)
+            send_email(
+                token=token,
+                subject="News account verification",
+                message="Please use the link to active your account",
+                recipient_list=[email],
+                email_for="verification",
+            )
+            messages.add_message(request, messages.SUCCESS, "Account activation email sent.")
+            return HttpResponseRedirect(reverse("accounts:index"))
+        
+        # Invalid form data
+        return render(request, "accounts/index.html", {
+            "login_form": LoginForm(),
+            "register_form": RegisterationForm(),
+            "forgot_form": FindAccountForm(),
+            "verification_form": form,
+            "view": "verification"
+        })
+            
         
 class ProfileView(LoginRequiredMixin, View):
     login_url = "/accounts/"

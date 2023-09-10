@@ -1,0 +1,14 @@
+{% load crispy_forms_tags %}
+
+<div class="form-signin w-100 mx-auto border shadow auth-form fade visually-hidden" id="verification">
+    <form action="{% url 'accounts:resend-verification' %}" method="post">
+        {% csrf_token %}
+        <h3 class="mb-3 text-center">Account Verification</h3>
+
+        <!-- Messages -->
+        {% if view == "verification" %}{% include "accounts/messages.html" %}{% endif %}
+
+        {% crispy verification_form %}
+        <p class="text-center my-2"><a class="link-underline" href="#" onclick="switch_view('login')">Go back</a></p>
+    </form>
+</div>

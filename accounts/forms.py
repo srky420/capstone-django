@@ -79,7 +79,9 @@ class FindAccountForm(forms.ModelForm):
     def clean(self):
         email = self.cleaned_data["email"]
         try:
-            User.objects.get(email=email)
+            user = User.objects.get(email=email)
+            if user.is_active == False:
+                raise forms.ValidationError("Account not verified.")
         except User.DoesNotExist:
             raise forms.ValidationError("Account does not exist.")
         
@@ -139,3 +141,31 @@ class ChangePasswordForm(PasswordChangeForm):
             FloatingField("new_password2"),
             Submit(name="submit", value="Change Password", css_class="btn-dark")
         )
+        
+
+"""
+Resend verification form
+"""
+class VerificationForm(forms.Form):
+    email = forms.EmailField()
+    
+    def clean(self):
+        email = self.cleaned_data["email"]
+        
+        # Check if user exists
+        try:
+            User.objects.get(email=email)
+        except User.DoesNotExist:
+            raise forms.ValidationError("Account does not exist.")
+        
+    # Creating Floating Fields using crispy bootstrap 5
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            FloatingField("email"),
+            Submit(name="submit", value="Send Email", css_class="btn-dark w-100")
+        )
+        
+        for fieldname in ["email"]:
+            self.fields[fieldname].help_text = None

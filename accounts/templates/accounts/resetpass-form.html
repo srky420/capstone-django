@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    <div class="form-signin w-100 mx-auto border shadow auth-form fade show">
+    <div class="form-signin w-100 mx-auto border shadow fade show">
         <form action="{% url 'accounts:reset-pass' token %}" method="post">
             {% csrf_token %}
             <h3 class="mb-3 text-center">Password Reset</h3>
