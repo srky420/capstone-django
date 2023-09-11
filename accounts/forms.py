@@ -154,7 +154,9 @@ class VerificationForm(forms.Form):
         
         # Check if user exists
         try:
-            User.objects.get(email=email)
+            user = User.objects.get(email=email)
+            if user.is_active == True:
+                raise forms.ValidationError("Account already verified.")
         except User.DoesNotExist:
             raise forms.ValidationError("Account does not exist.")
         
