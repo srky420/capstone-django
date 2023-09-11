@@ -66,7 +66,7 @@
 
   window.addEventListener('DOMContentLoaded', () => {
     showActiveTheme(getPreferredTheme())
-    swtich_btns(getPreferredTheme())
+    switch_btns()
 
     document.querySelectorAll('[data-bs-theme-value]')
       .forEach(toggle => {
@@ -75,15 +75,15 @@
           setStoredTheme(theme)
           setTheme(theme)
           showActiveTheme(theme, true)
-          swtich_btns(theme)
+          switch_btns()
         })
       })
   })
 })()
 
-function swtich_btns(theme) {
+function switch_btns() {
   // Convert btn on dark mode
-  if (theme == 'dark') {
+  if (document.documentElement.getAttribute('data-bs-theme') === 'dark') {
     document.querySelectorAll('.btn-dark').forEach(btn => {
       btn.classList.remove('btn-dark');
       btn.classList.add('btn-light');
