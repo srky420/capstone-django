@@ -229,7 +229,15 @@ Defines file structure and contents of relevant files/folders.
         EMAIL_PW=<Your Gmail app password>
         SECRET_SALT=<Random string e.g. my_secret_salt_key>
 
-    *Note:* *You can also see .env.example to get an idea of .env file.*
+	*Note: You can also see .env.example to get an idea of .env file.*
+
+4. Make sure to set SITE_URL in settings to the URL on which development server will run. Its necessary for sending emails with correct URL.
+
+	By default its set to:
+
+		SITE_URL = 'http://127.0.0.1:8000'
+
+    *Note: Usually Django's development server, by default, runs on 127.0.0.1:8000. So you might not need to change this setting.*
 
 ### Usage
 
