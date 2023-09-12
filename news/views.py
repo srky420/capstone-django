@@ -1,10 +1,8 @@
 import json
 
 from django.shortcuts import render
-from django.urls import reverse
 from django.views import View
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import JsonResponse, HttpResponseRedirect
+from django.http import JsonResponse
 
 from .models import Subscription
 from .utils import get_top_headlines, get_top_sources, get_all_sources, get_everything, get_news_from_sources
