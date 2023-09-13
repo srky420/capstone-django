@@ -249,6 +249,8 @@ Be sure to activate virtual environment before running the server:
 
     .\venv\Scripts\activate
 
+*Note: For purpose of sign up, you can use [tempmail](https://temp-mail.org/en) to generate temporary email and inbox.*
+
 ## Support
 
 Thank you for going through this extensive documentation. I hope it helps! Please provide me with feedback for any changes or improvements.
