@@ -9,6 +9,8 @@ A News Aggregator web app, written in Django, that consumes [News API](https://n
 
 ### [Website Link](https://srky420.pythonanywhere.com/news/)
 
+### [Youtube Demonstration](https://www.youtube.com/watch?v=fX7Qv1oLIP4)
+
 ## Quick Links
 
 - [Overview](#overview)
