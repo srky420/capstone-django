@@ -198,7 +198,7 @@ Defines file structure and contents of relevant files/folders.
 
         git clone https://github.com/srky420/capstone-django.git
         
-        cd capstone
+        cd capstone-django
 
 4. Create virtual environment inside project's directory and activate it:
 
