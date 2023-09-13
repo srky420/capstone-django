@@ -45,7 +45,11 @@ class LoginForm(forms.ModelForm):
         fields = ["username", "password"]
     
     # Try to authenticate user and raise error if cannot
-    def clean(self):        
+    def clean(self): 
+        
+        if not self.cleaned_data.get("username") or not self.cleaned_data["password"]:
+            return
+               
         username = self.cleaned_data["username"]
         password = self.cleaned_data["password"]
         
@@ -77,6 +81,10 @@ class FindAccountForm(forms.ModelForm):
         
     # Try to find this account
     def clean(self):
+        
+        if not self.cleaned_data.get("email"):
+            return
+            
         email = self.cleaned_data["email"]
         try:
             user = User.objects.get(email=email)
@@ -97,7 +105,7 @@ class FindAccountForm(forms.ModelForm):
         for fieldname in ["email"]:
             self.fields[fieldname].help_text = None
             
-            
+    
 """
 Reset password form
 """
@@ -150,6 +158,10 @@ class VerificationForm(forms.Form):
     email = forms.EmailField()
     
     def clean(self):
+        
+        if not self.cleaned_data.get("email"):
+            return
+        
         email = self.cleaned_data["email"]
         
         # Check if user exists
